@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_11_135237) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_11_143532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_favourites_on_restaurant_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
@@ -61,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_135237) do
     t.index ["restaurant_id"], name: "index_working_hours_on_restaurant_id"
   end
 
+  add_foreign_key "favourites", "restaurants"
+  add_foreign_key "favourites", "users"
   add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
