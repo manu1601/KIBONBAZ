@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_11_144804) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_11_200305) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,12 +46,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_144804) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name_tag"
+  create_table "suggestions", force: :cascade do |t|
+    t.bigint "tag_id", null: false
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_tags_on_restaurant_id"
+    t.index ["restaurant_id"], name: "index_suggestions_on_restaurant_id"
+    t.index ["tag_id"], name: "index_suggestions_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name_tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_144804) do
   add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
-  add_foreign_key "tags", "restaurants"
+  add_foreign_key "suggestions", "restaurants"
+  add_foreign_key "suggestions", "tags"
   add_foreign_key "working_hours", "restaurants"
 end
