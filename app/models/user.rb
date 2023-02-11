@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :restaurants
   has_many :favourites
+  has_many :restaurants, through: :favourites
 end
