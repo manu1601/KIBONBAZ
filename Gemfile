@@ -42,6 +42,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Image Upload
+gem "cloudinary"
+
 #  use the dotenv gem for security
 gem "dotenv-rails", groups: [:development, :test]
 
