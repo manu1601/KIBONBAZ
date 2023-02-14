@@ -6,6 +6,7 @@ class Restaurant < ApplicationRecord
   has_many :tags, through: :suggestions
   has_many :favourites, dependent: :destroy
   has_many :users, through: :favourites
+  has_many_attached :photos
   validates :name, presence: true
   validates :address, presence: true
   validates :contact_number, presence: true
