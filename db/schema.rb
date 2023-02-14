@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_11_104839) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_11_200305) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_favourites_on_restaurant_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
@@ -22,11 +31,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_104839) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
     t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "restaurant_id"
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_suggestions_on_restaurant_id"
+    t.index ["tag_id"], name: "index_suggestions_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name_tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,8 +69,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_104839) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "owner", default: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "working_hours", force: :cascade do |t|
+    t.string "day"
+    t.time "opening_hours"
+    t.time "closing_hours"
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_working_hours_on_restaurant_id"
+  end
+
+  add_foreign_key "favourites", "restaurants"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "restaurants", "users"
+  add_foreign_key "reviews", "restaurants"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "suggestions", "restaurants"
+  add_foreign_key "suggestions", "tags"
+  add_foreign_key "working_hours", "restaurants"
 end
