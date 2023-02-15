@@ -1,10 +1,16 @@
 <div class="container">
-  <h1> Adding a new restaurant</h1>
-  <%= simple_form_for(@restaurant) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :contact_number %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true} %>
-    <%= f.submit %>
-  <% end %>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-4">
+    <div class="shadow-lg p-3 mt-5 mb-5 bg-body rounded">
+        <h1 class= "text-center fw-bolder p-3"> Add restaurant</h1>
+        <%= simple_form_for(@restaurant) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :contact_number %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true}%>
+          <%= f.submit class:"btn btn-primary w-100 mt-3" %>
+        <% end %>
+    </div>
+    </div>
+  </div>
 </div>
