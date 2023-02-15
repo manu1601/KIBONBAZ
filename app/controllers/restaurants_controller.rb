@@ -1,6 +1,13 @@
 class RestaurantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
     @restaurants = Restaurant.all
+  end
+
+  def new
+    @restaurant = Restaurant.new
+  end
+
   def show
     @restaurant = Restaurant.find(params[:id])
     @review.restaurant = @restaurant
