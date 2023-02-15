@@ -21,6 +21,7 @@
 
 <% if user_signed_in? && current_user.owner == true%>
   <h1>your restaurants!</h1>
+  <%=link_to "Add restaurant", new_restaurant_path, class: " btn btn-primary " %>
   <hr>
   <% owner_restaurants =  @restaurants.select do |restaurant|%>
     <%restaurant.user_id == current_user.id%>
@@ -33,9 +34,9 @@
     <p>****<%= owner_restaurant.address %></p>
     <br>
     <p>****<%= owner_restaurant.contact_number %></p>
-    <%=link_to "Add restaurant", new_restaurant_path, class: " btn btn-primary " %>
   <hr>
   <%end%>
+
 <%else%>
   <%@restaurants.each do |restaurant|%>
     <h1> all restaurants!</h1>
