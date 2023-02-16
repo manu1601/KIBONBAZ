@@ -1,0 +1,6 @@
+class RemoveLattitudeFromRestaurant < ActiveRecord::Migration[7.0]
+  def change
+    remove_column :restaurants, :lattitude
+  end
+end
+
