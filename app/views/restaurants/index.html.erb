@@ -1,6 +1,6 @@
 <div class="container">
-<h1> Visitors/users not signed in & signed in/owner's not signed in - Display all restaurants</h1>
-<h1> owner signed in --> Display only his restaurants</h1>
+  <h1> Visitors/users not signed in & signed in/owner's not signed in - Display all restaurants</h1>
+  <h1> owner signed in --> Display only his restaurants</h1>
 </div>
 
 <% if user_signed_in? %>
@@ -48,3 +48,9 @@
   <%end%>
   <hr>
 <%end%>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV[pk.eyJ1IjoibWFudTE2MDEiLCJhIjoiY2xlN2N2bmt5MDRhZTNxbnp2cGdoOHlrNCJ9.xO5W6wuqoE3YTEqTRkU6Fg] %>">
+</div>

@@ -2,6 +2,12 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
     @restaurants = Restaurant.all
+    @markers = @restaurants.geocoded.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
   end
 
   def new
@@ -17,6 +23,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @review.restaurant = @restaurant
   end
 
   def edit

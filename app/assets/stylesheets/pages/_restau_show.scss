@@ -1,0 +1,67 @@
+.show_container{
+  display:grid;
+  justify-content: center;
+  background-image: url(https://img.freepik.com/premium-vector/various-hand-drawn-food-cookery-dishes-doodle-outline-white-chalk-sketch-seamless-pattern-black_502272-628.jpg?w=740);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.restau_image{
+  border: solid lightgray 1px;
+  width: 510px;
+  height: 400px;
+  border-radius: 15px;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+
+.restau_info{
+  border: solid lightgray 1px;
+  width: 500px;
+  height: 200px;
+  border-radius: 15px;
+  margin-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+
+.navigate {
+  width: 90px;
+  height: 40px;
+  padding: 5px;
+  background-color: #1F2833;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  border: solid 2px #66FCF1
+}
+
+.navigate:hover {
+  animation: floating 1s ease-in-out infinite;
+}
+
+.favourites:hover {
+  animation: floating 1s ease-in-out infinite;
+}
+
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 5px); }
+  100%   { transform: translate(0, 0px); }
+}
+
+.favourites {
+  width: 150px;
+  height: 40px;
+  padding: 5px;
+  background-color: #1F2833;
+  color: white;
+  font-weight: bold;
+  border-radius: 16px;
+  margin-left: 265px;
+  cursor: pointer;
+  border: solid 2px #66FCF1
+}
