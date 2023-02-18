@@ -5,7 +5,8 @@ class RestaurantsController < ApplicationController
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
-        lng: restaurant.longitude
+        lng: restaurant.longitude,
+        info_window_html: render_to_string(partial: "popup", locals: { restaurant: restaurant})
       }
     end
   end
@@ -23,7 +24,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @review.restaurant = @restaurant
+    #@review.restaurant = @restaurant
   end
 
   def edit

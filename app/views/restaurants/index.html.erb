@@ -1,6 +1,6 @@
 <div class="container">
-  <h1> Visitors/users not signed in & signed in/owner's not signed in - Display all restaurants</h1>
-  <h1> owner signed in --> Display only his restaurants</h1>
+  <%# <h1> Visitors/users not signed in & signed in/owner's not signed in - Display all restaurants</h1> %>
+  <%# <h1> owner signed in --> Display only his restaurants</h1> %>
 </div>
 
 <% if user_signed_in? %>
@@ -29,28 +29,27 @@
   <%#= owner_restaurants %>
   <hr>
   <% owner_restaurants.each do |owner_restaurant| %>
-    <p>****<%= owner_restaurant.name %></p>
+    <p>****<% owner_restaurant.name %></p>
     <br>
-    <p>****<%= owner_restaurant.address %></p>
+    <p>****<% owner_restaurant.address %></p>
     <br>
-    <p>****<%= owner_restaurant.contact_number %></p>
+    <p>****<% owner_restaurant.contact_number %></p>
   <hr>
   <%end%>
 
 <%else%>
   <%@restaurants.each do |restaurant|%>
-    <h1> all restaurants!</h1>
-    <p>###<%= restaurant.name %></p>
+    <% restaurant.name %>
     <br>
-    <p>###<%= restaurant.address %></p>
+    <% restaurant.address %>
     <br>
-    <p>###<%= restaurant.contact_number %></p>
+    <% restaurant.contact_number %>
   <%end%>
   <hr>
 <%end%>
 
-<div style="width: 100%; height: 600px;"
+<div style="width: 100%; height: 400px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV[pk.eyJ1IjoibWFudTE2MDEiLCJhIjoiY2xlN2N2bmt5MDRhZTNxbnp2cGdoOHlrNCJ9.xO5W6wuqoE3YTEqTRkU6Fg] %>">
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
