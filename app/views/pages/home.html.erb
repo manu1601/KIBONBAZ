@@ -1,3 +1,32 @@
-<h1>Pages#home</h1>
-<h2>  HELLO </h2>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homepage_container">
+  <div class="title">
+    <div class="kibon">
+    <h1>KIBON</h1>
+    </div>
+    <div class="baz">
+      <h1>BAZ</h1>
+    </div>
+  </div>
+  <div class="subtitle">
+    <h2>Good Food Close to You!</h2>
+  </div>
+  <div class="how_it_works">
+    <button class="btn_hiw btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <p>How it works</p>
+    </button>
+      <div class="collapse" id="collapseExample">
+        <div class="hiw_card"><%= image_tag "image1"%>
+          <h2>Pick</h2>
+          <p>Pick a Restaurant</p>
+        </div>
+        <div class="hiw_card"><%= image_tag "image2" %>
+          <h2>Navigate</h2>
+          <p>Use the map to navigate</p>
+        </div>
+        <div class="hiw_card"><%= image_tag "image3" %>
+          <h2>Enjoy!</h2>
+          <p>Enjoy your favourite food!</p>
+        </div>
+      </div>
+  </div>
+</div>
