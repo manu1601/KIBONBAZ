@@ -5,10 +5,10 @@
 
 <% if user_signed_in? %>
   <hr>
-  <p><%=current_user%> </p>
-  <p><%=current_user.username%> signed in!</p>
-  <p><%=current_user.email%> </p>
-  <p>owner :<%=current_user.owner%> </p>
+  <p><%current_user%> </p>
+  <p><%current_user.username%></p>
+  <p><%current_user.email%> </p>
+  <p><%current_user.owner%> </p>
   <hr>
 <%else%>
 <hr>
@@ -48,7 +48,7 @@
   <hr>
 <%end%>
 
-<div style="width: 100%; height: 400px;"
+<div id="map" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
