@@ -18,9 +18,9 @@ puts 'populating database...'
 puts 'creating 3 users as owner'
 u1 = User.new(email: "jean@lewagon.com", password: "123456", username: "@jean", owner: true)
 u1.save!
-u2 = User.new(email: "Tom@lewagon.com", password: "789012", username: "@tom", owner: true)
+u2 = User.new(email: "Tom@lewagon.com", password: "123456", username: "@tom", owner: true)
 u2.save!
-u3 = User.new(email: "fifi@lewagon.com", password: "345678", username: "@fifi", owner: true)
+u3 = User.new(email: "fifi@lewagon.com", password: "123456", username: "@fifi", owner: true)
 u3.save!
 puts " Finished creating 3 users as owner "
 
@@ -90,11 +90,11 @@ t9.save!
 puts " Finished creating 9 tags"
 
 puts 'creating 3 users as not -owner'
-u4 = User.new(email: "alex@lewagon.com", password: "645783", username: "@alex", owner: false)
+u4 = User.new(email: "alex@lewagon.com", password: "123456", username: "@alex", owner: false)
 u4.save!
-u5 = User.new(email: "Jessy@lewagon.com", password: "5436723", username: "@Jessy", owner: false)
+u5 = User.new(email: "Jessy@lewagon.com", password: "123456", username: "@Jessy", owner: false)
 u5.save!
-u6 = User.new(email: "claire@lewagon.com", password: "6543218", username: "@claire", owner: false)
+u6 = User.new(email: "claire@lewagon.com", password: "123456", username: "@claire", owner: false)
 u6.save!
 puts " Finished creating 3 users as not owner "
 
