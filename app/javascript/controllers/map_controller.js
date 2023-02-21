@@ -43,8 +43,8 @@ const map = new mapboxgl.Map({
 container: 'map',
 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
 style: 'mapbox://styles/mapbox/streets-v12',
-center: [-20.2699, 57.5076],
-zoom: 13
+center: [-24, 42], // starting center in [lng, lat]
+zoom: 1 // starting zoom
 });
 
 map.addControl(
@@ -56,9 +56,9 @@ accessToken: mapboxgl.accessToken
 
 
 map.addControl(
-  new mapboxgl.GeolocateControl({
-  positionOptions: {
-  enableHighAccuracy: true
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
   },
   // When active the map will receive updates to the device's location as it changes.
   trackUserLocation: true,

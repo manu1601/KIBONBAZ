@@ -1,7 +1,12 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    @restaurants = Restaurant.all
+
+    if params[:query].present?
+      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -25,7 +30,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    #@review.restaurant = @restaurant
+    @review = Review.new
+    @review.restaurant = @restaurant
   end
 
   def edit

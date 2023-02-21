@@ -14,3 +14,19 @@
     <button class="navigate"><%= link_to "Navigate", restaurants_path%><i class="fa-regular fa-compass"></i></i></button>
   </div>
 </div>
+<div class="Add_review_container">
+    <div class="review_btn">
+      <button class="btn_rev btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <p>Add a Review<i class="fa-regular fa-pen-to-square"></i></p>
+      </button>
+    </div>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <%= simple_form_for [ @restaurant, @review ] do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :rating %>
+      <%= f.submit "Submit review", class: "btn btn-gradient" %>
+      <% end %>
+    </div>
+  </div>
+</div>
