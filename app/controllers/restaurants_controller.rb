@@ -2,6 +2,13 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
     @restaurants = Restaurant.all
+    @markers = @restaurants.geocoded.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude,
+        info_window_html: render_to_string(partial: "popup", locals: { restaurant: restaurant})
+      }
+    end
   end
 
   def new

@@ -1,15 +1,18 @@
-<div class="show_container">
-    <div class="restau_image"></div>
-    <div class="restau_info">
-      <h1><strong><%= @restaurant.name %></strong></h1>
-      <p><%= @restaurant.address %></p>
-      <p><%= @restaurant.address %></p>
-      <p><%= @restaurant.contact_number %></p>
-    </div>
-    <div class="buttons">
-      <button class="navigate" type="button">Navigate</button>
-      <button class="favourites">Add to Favourites</button>
-    </div>
+<div class="show_cont">
+  <div class="restau_image">
+    <% @restaurant.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
+  <div class="restau_info">
+    <h1><strong><%= @restaurant.name %></strong></h1>
+    <p><%= @restaurant.address %></p>
+    <p><%#= @restaurant.rating %></p>
+    <p><%= @restaurant.contact_number %></p>
+  </div>
+  <div class="buttons">
+    <%= link_to "Back", restaurants_path, class: "btn btn-light"%>
+  </div>
 </div>
 
   <div class="reviews">

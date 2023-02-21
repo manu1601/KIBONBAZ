@@ -1,0 +1,45 @@
+<nav class="navbar navbar-dark bg-dark fixed-top rounded mb-0 p-0">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bolder " style="color:white; border-style:dotted; border-radius:5px; padding:0px; fs-5" href="#">Kibonbaz <i class="fa-solid fa-bowl-food"></i></a>
+    <span class="navbar-toggler" style= "padding:5px; color:white; font-size: 25px; border-style:solid; border-width:2px; border-radius:5px;"data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" >
+      <i class="fa-sharp fa-regular fa-user"></i>
+    </span>
+    <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header bg-dark d-block ">
+        <h5 class="offcanvas-title text-white fw-bolder" id="offcanvasNavbarLabel">Kibonbaz</h5>
+        <% if user_signed_in?%>
+          <small class="offcanvas-title text-white fw-bolder" id="offcanvasNavbarLabel"> <%= current_user.username %> logged in </small>
+        <% end %>
+        <button type="button" class="btn-close btn-close-white text-reset position-absolute top-0 end-0 m-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body fw-bolder">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link text-dark" %>
+          </li>
+          <% if user_signed_in? && current_user.owner == false %>
+            <li class="nav-item">
+              <%= link_to "Favourites", "", class: "nav-link text-dark" %>
+            </li>
+          <% end %>
+          <% if user_signed_in? && current_user.owner == true %>
+            <li class="nav-item">
+              <%= link_to "Restaurants", "", class: "nav-link text-dark" %>
+            </li>
+          <% end %>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},class:" nav-link text-dark text-decoration-none"%>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login/Sign up", new_user_session_path, class: "nav-link text-dark" %>
+            </li>
+          <% end %>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
