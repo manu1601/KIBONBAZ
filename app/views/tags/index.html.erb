@@ -8,7 +8,6 @@
       <hr>
       <% @tags.each do |tag| %>
         <%= link_to tag.name_tag, tag_path(tag) %>
-        <p> display all the restaurant that has <%= tag.name_tag %></p>
         <hr>
       <% end %>
   </div>
