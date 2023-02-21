@@ -11,3 +11,15 @@
       <button class="favourites">Add to Favourites</button>
     </div>
 </div>
+
+  <div class="reviews">
+  <h2>Reviews</h2>
+  <% @reviews.each do |review|%>
+  <p><%= review.user.username%></p>
+  <p> Comment: <%= review.comment%></p>
+  <p> Rating: <%= review.rating %></p>
+  <% if review.user == current_user %>
+  <%= link_to "Delete Review", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-gradient" %>
+  <% end %>
+  </div>
+</div>
