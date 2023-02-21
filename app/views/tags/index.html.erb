@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-4">
+    </div>
+      <h1> Here I will display all the tags</h1>
+      <p> only the person who created the the app can add tags</p>
+      <p><%= @tags.count %> tags </p>
+      <hr>
+      <% @tags.each do |tag| %>
+        <%= link_to tag.name_tag, tag_path(tag) %>
+        <p> display all the restaurant that has <%= tag.name_tag %></p>
+        <hr>
+      <% end %>
+  </div>
+</div>
