@@ -5,14 +5,17 @@ export default class extends Controller {
   connect() {
     //this.element.textContent = "Hello World!"
     console.log("hi from hello_controller.js ")
-    // console.log(this.element)
-    // console.log(this.starTarget)
+    console.log(this.starTarget.classList.value)
   }
-  favourite(event) {
-    // console.dir(this.starTarget)
-    console.log(this.starTarget.classList)
-    this.starTarget.classList.remove("unfavourite-icon")
-    this.starTarget.classList.add("favourite-icon")
 
+  favourite(event) {
+    if (this.starTarget.classList.value === "") {
+      this.starTarget.classList.add("favourite-icon")
+      console.log(this.starTarget.classList.value)
+    } else {
+      this.starTarget.classList.remove("favourite-icon")
+      console.log("empty")
+    }
   }
+
 }
