@@ -17,6 +17,20 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    if @restaurant.favorited_by?(current_user)
+      current_user.unfavorite(@restaurant)
+    else
+      current_user.favorite(@restaurant)
+    end
+  end
+
+  def toggle_favorite
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.favorited_by?(current_user)
+      current_user.unfavorite(@restaurant)
+    else
+      current_user.favorite(@restaurant)
+    end
   end
 
   def edit

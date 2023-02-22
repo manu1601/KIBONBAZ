@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :restaurants do
-    resources :reviews #, only: [:index, :new, :create]
+    member do
+      get 'toggle_favorite', to: "restaurants#toggle_favorite"
+    end
+    resources :reviews #  only: [:index, :new, :create]
   end
-  #resources :reviews, only: [:show, :edit, :update, :destroy]
+  get 'favorites', to: "favorites#index"
 end

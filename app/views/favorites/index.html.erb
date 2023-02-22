@@ -1,0 +1,9 @@
+<h1> All your favourite restaurants</h1>
+<p>  <%= current_user.username %> you are logged in !!!! </p>
+<% @favorites.each do |favorite| %>
+  <%restaurant = Restaurant.find_by(id: favorite.favoritable_id) %>
+  <%= restaurant.name %>
+  <%= restaurant.address %>
+  <%= restaurant.contact_number %>
+  <hr>
+<% end %>
