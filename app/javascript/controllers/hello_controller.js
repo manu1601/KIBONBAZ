@@ -1,11 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["star"]
+  static targets = ["star","el"]
   connect() {
     //this.element.textContent = "Hello World!"
     console.log("hi from hello_controller.js ")
     console.log(this.starTarget.classList.value)
+    console.log(this.elTarget.dataset.id)
   }
 
   favourite(event) {
