@@ -68,6 +68,49 @@ w6.save!
 puts " Finished creating 4th restaurant working hours w6"
 puts " Finished creating restaurants"
 
+# seeding more restaurants for demo
+file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
+r5 = Restaurant.new(name: "saffron grill", address: "g-baie", contact_number: "4334325", user_id: u1.id)
+r5.photos.attach(io: file, filename: "r5.jpeg", content_type: "image/jpeg")
+r5.save!
+puts " Finished creating 4th restaurant"
+w7 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r5.id)
+w7.save!
+puts " Finished creating 4th restaurant working hours w6"
+puts " Finished creating restaurants"
+
+# seeding more restaurants for demo
+file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
+r6 = Restaurant.new(name: "star deg", address: "port-louis", contact_number: "4334325", user_id: u1.id)
+r6.photos.attach(io: file, filename: "r6.jpeg", content_type: "image/jpeg")
+r6.save!
+puts " Finished creating 4th restaurant"
+w8 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r6.id)
+w8.save!
+puts " Finished creating 4th restaurant working hours w6"
+puts " Finished creating restaurants"
+
+# seeding more restaurants for demo
+file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
+r7 = Restaurant.new(name: "B&G", address: "port-louis", contact_number: "4334325", user_id: u1.id)
+r7.photos.attach(io: file, filename: "r7.jpeg", content_type: "image/jpeg")
+r7.save!
+puts " Finished creating 4th restaurant"
+w9 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r7.id)
+w9.save!
+puts " Finished creating 4th restaurant working hours w6"
+puts " Finished creating restaurants"
+
+file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
+r8 = Restaurant.new(name: "GLORIA", address: "port-louis", contact_number: "4334325", user_id: u1.id)
+r8.photos.attach(io: file, filename: "r8.jpeg", content_type: "image/jpeg")
+r8.save!
+puts " Finished creating 4th restaurant"
+w10 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r8.id)
+w10.save!
+puts " Finished creating 4th restaurant working hours w6"
+puts " Finished creating restaurants"
+
 puts "creating tags"
 t1 = Tag.new(name_tag: "Briyani")
 t1.save!

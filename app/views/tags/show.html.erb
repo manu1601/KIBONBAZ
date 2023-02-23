@@ -1,26 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-4">
-
       <h1> tag show page # <%= @tag.name_tag %></h1>
         <% @suggestions.each do |suggestion| %>
           <hr>
-           <p> tag_id: <%= suggestion.tag_id %> </p>
-           <p> restaurant_id <%= suggestion.restaurant_id %> </p>
            <%= suggestion.restaurant.name %>
            <br>
            <%= suggestion.restaurant.address %>
            <br>
            <%= suggestion.restaurant.contact_number %>
-           <p>-------------------</p>
-           <p> reviews # to toggle reviews</p>
-           <% suggestion.restaurant.reviews.each do |review|  %>
-            <p> rating: <%= review.rating %></p>
-            <p> comment: <%= review.comment %> <p>
-            <p>-------------------</p>
-           <% end %>
-           <p>### to display working hours here#### </p>
-           <button> direction </button>
         <% end %>
     </div>
   </div>
