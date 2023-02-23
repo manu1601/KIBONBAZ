@@ -7,25 +7,13 @@
       <p><%= @restaurant.contact_number %></p>
     </div>
 </div>
-<%= current_user.username %>
-<%= current_user.id %>
-<%= @restaurant.id %>
 
-<%= link_to "add to favorite", restaurant_favorites_path(@restaurant)%>
-<%# <script>
-  console.log("hello from restaurants/show.html.erb");
-  const star = document.querySelector("#star");
-  star.addEventListener("click", (event) => {
-    console.log(event.currentTarget);
-    console.log(event);
-    console.log(star.classList.value)
-    if (star.classList.value === "") {
-      star.classList.add("favourite-icon")
-      console.log(star.classList.value)
-    } else {
-      star.classList.remove("favourite-icon")
-      console.log("empty")
-    }
-    });
 
-</script> %>
+
+<% if user_signed_in? && current_user.favorited?(@restaurant) %>
+  <i class="fa-solid fa-star fs-1" style="color:orange"> </i>
+<% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+  <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary"%>
+<% else %>
+  <p> sign up to save your favourite restaurants</p>
+<% end %>

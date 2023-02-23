@@ -1,10 +1,16 @@
-<h1> All your favourite restaurants</h1>
-<p>  <%= current_user.username %> you are logged in !!!! </p>
-<% @favorites.each do |favorite| %>
-  <%restaurant = Restaurant.find_by(id: favorite.favoritable_id) %>
-  <%= restaurant.name %>
-  <%= restaurant.address %>
-  <%= restaurant.contact_number %>
-  <%= link_to "Delete", favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <hr>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-4">
+      <h1> All your favourite restaurants</h1>
+      <p>  <%= current_user.username %> you are logged in !!!! </p>
+      <% @favorites.each do |favorite| %>
+        <%restaurant = Restaurant.find_by(id: favorite.favoritable_id) %>
+        <%= restaurant.name %>
+        <%= restaurant.address %>
+        <%= restaurant.contact_number %>
+        <%= link_to "Delete", favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary" %>
+        <hr>
+      <% end %>
+    </div>
+  </div>
+</div>
