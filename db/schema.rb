@@ -60,15 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_130133) do
     t.index ["scope"], name: "index_favorites_on_scope"
   end
 
-  create_table "favourites", force: :cascade do |t|
-    t.bigint "restaurant_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_favourites_on_restaurant_id"
-    t.index ["user_id"], name: "index_favourites_on_user_id"
-  end
-
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -86,8 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_130133) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "restaurant_id"
     t.bigint "user_id"
+    t.bigint "restaurant_id"
     t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -133,8 +124,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_130133) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "favourites", "restaurants"
-  add_foreign_key "favourites", "users"
   add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"

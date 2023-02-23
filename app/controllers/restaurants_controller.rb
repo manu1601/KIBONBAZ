@@ -31,7 +31,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @review = Review.new
     @review.restaurant = @restaurant
-    raise
+    @reviews = @restaurant.reviews
   end
 
   def add_favorite

@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 Review.destroy_all
-Favourite.destroy_all
 WorkingHour.destroy_all
 Suggestion.destroy_all
 Restaurant.destroy_all
@@ -70,18 +69,18 @@ puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r5 = Restaurant.new(name: "saffron grill", address: "g-baie", contact_number: "4334325", user_id: u1.id)
+r5 = Restaurant.new(name: "saffron grill", address: "Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r5.photos.attach(io: file, filename: "r5.jpeg", content_type: "image/jpeg")
 r5.save!
 puts " Finished creating 4th restaurant"
-w7 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r5.id)
+w7 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "09:00", closing_hours: "22:00", restaurant_id: r5.id)
 w7.save!
 puts " Finished creating 4th restaurant working hours w6"
 puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r6 = Restaurant.new(name: "star deg", address: "port-louis", contact_number: "4334325", user_id: u1.id)
+r6 = Restaurant.new(name: "star deg", address: "B49, Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81402, Mauritius", contact_number: "4334325", user_id: u1.id)
 r6.photos.attach(io: file, filename: "r6.jpeg", content_type: "image/jpeg")
 r6.save!
 puts " Finished creating 4th restaurant"
@@ -92,7 +91,7 @@ puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r7 = Restaurant.new(name: "B&G", address: "port-louis", contact_number: "4334325", user_id: u1.id)
+r7 = Restaurant.new(name: "B&G", address: "Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r7.photos.attach(io: file, filename: "r7.jpeg", content_type: "image/jpeg")
 r7.save!
 puts " Finished creating 4th restaurant"
@@ -102,7 +101,7 @@ puts " Finished creating 4th restaurant working hours w6"
 puts " Finished creating restaurants"
 
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r8 = Restaurant.new(name: "GLORIA", address: "port-louis", contact_number: "4334325", user_id: u1.id)
+r8 = Restaurant.new(name: "GLORIA", address: "Pharmachic, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r8.photos.attach(io: file, filename: "r8.jpeg", content_type: "image/jpeg")
 r8.save!
 puts " Finished creating 4th restaurant"
