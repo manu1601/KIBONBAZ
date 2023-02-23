@@ -18,15 +18,15 @@ puts 'populating database...'
 puts 'creating 3 users as owner'
 u1 = User.new(email: "jean@lewagon.com", password: "123456", username: "@jean", owner: true)
 u1.save!
-u2 = User.new(email: "Tom@lewagon.com", password: "789012", username: "@tom", owner: true)
+u2 = User.new(email: "Tom@lewagon.com", password: "123456", username: "@tom", owner: true)
 u2.save!
-u3 = User.new(email: "fifi@lewagon.com", password: "345678", username: "@fifi", owner: true)
+u3 = User.new(email: "fifi@lewagon.com", password: "123456", username: "@fifi", owner: true)
 u3.save!
 puts " Finished creating 3 users as owner "
 
 puts "creating restaurants"
 file = URI.open("https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-r1 = Restaurant.new(name: "Elizabeth B&G", address: "Imam Bacos Sobdar St, Port Louis", contact_number: "52554898", user_id: u1.id)
+r1 = Restaurant.new(name: "Bol 5", address: "JKalachand, A7, L'Agrément, Saint Pierre, Moka, Mauritius", contact_number: "59702430", user_id: u1.id)
 r1.photos.attach(io: file, filename: "r1.jpeg", content_type: "image/jpeg")
 r1.save!
 puts " Finished creating first restaurant"
@@ -38,7 +38,7 @@ w2.save!
 puts " Finished creating first restaurant working hours w2"
 
 file = URI.open("https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
-r2 = Restaurant.new(name: "Tariq snack", address: "Royal Road, Terminus , Triolet", contact_number: "57987532", user_id: u2.id)
+r2 = Restaurant.new(name: "La Terrasse", address: "Loterie, Lislet Geoffrey Street, Cité Joachim, Floreal, Curepipe, Plaines Wilhems, Mauritius", contact_number: "57752952", user_id: u2.id)
 r2.photos.attach(io: file, filename: "r2.jpeg", content_type: "image/jpeg")
 r2.save!
 puts " Finished creating 2nd restaurant"
@@ -50,7 +50,7 @@ w4.save!
 puts " Finished creating 2nd restaurant working hours w4"
 
 file = URI.open("https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r3 = Restaurant.new(name: "Sameer snack", address: "Derningham, Triolet", contact_number: "57683085", user_id: u3.id)
+r3 = Restaurant.new(name: "Kot Papi", address: "Gustave Bestel St, Curepipe", contact_number: "59891273", user_id: u3.id)
 r3.photos.attach(io: file, filename: "r3.jpeg", content_type: "image/jpeg")
 r3.save!
 puts " Finished creating 3rd restaurant"
@@ -59,7 +59,7 @@ w5.save!
 puts " Finished creating 3rd restaurant working hours w5"
 
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r4 = Restaurant.new(name: "Vona corona", address: "Royal Road, Rose-Hill", contact_number: "57222012", user_id: u1.id)
+r4 = Restaurant.new(name: "Mine Mangouste", address: "L'Agrément, Saint Pierre, Moka, Mauritius", contact_number: "4334325", user_id: u1.id)
 r4.photos.attach(io: file, filename: "r4.jpeg", content_type: "image/jpeg")
 r4.save!
 puts " Finished creating 4th restaurant"
@@ -90,24 +90,13 @@ t9.save!
 puts " Finished creating 9 tags"
 
 puts 'creating 3 users as not -owner'
-u4 = User.new(email: "alex@lewagon.com", password: "645783", username: "@alex", owner: false)
+u4 = User.new(email: "alex@lewagon.com", password: "123456", username: "@alex", owner: false)
 u4.save!
-u5 = User.new(email: "Jessy@lewagon.com", password: "5436723", username: "@Jessy", owner: false)
+u5 = User.new(email: "Jessy@lewagon.com", password: "123456", username: "@Jessy", owner: false)
 u5.save!
-u6 = User.new(email: "claire@lewagon.com", password: "6543218", username: "@claire", owner: false)
+u6 = User.new(email: "claire@lewagon.com", password: "123456", username: "@claire", owner: false)
 u6.save!
 puts " Finished creating 3 users as not owner "
-
-puts "creating favourites for users not owner "
-f1 = Favourite.new(user_id: u4.id, restaurant_id: r1.id)
-f1.save!
-f2 = Favourite.new(user_id: u5.id, restaurant_id: r2.id)
-f2.save!
-f3 = Favourite.new(user_id: u4.id, restaurant_id: r3.id)
-f3.save!
-f4 = Favourite.new(user_id: u5.id, restaurant_id: r3.id)
-f4.save!
-puts " finished creating favourites for users not owner "
 
 puts "creating suggestions"
 s1 = Suggestion.new(tag_id: t1.id, restaurant_id: r2.id)
@@ -123,11 +112,11 @@ s5.save!
 puts " finished creating suggestions"
 
 puts "creating reviews by users not owner"
-re1 = Review.new(comment: "good food", rating: 3, restaurant_id: r1.id, user_id: u4.id)
+re1 = Review.new(comment: "Good food, will come again!", rating: 3, restaurant_id: r1.id, user_id: u4.id)
 re1.save!
-re2 = Review.new(comment: "yummy!", rating: 4, restaurant_id: r2.id, user_id: u5.id)
+re2 = Review.new(comment: "Delicieux!", rating: 4, restaurant_id: r2.id, user_id: u5.id)
 re2.save!
-re3 = Review.new(comment: "delicious!", rating: 5, restaurant_id: r4.id, user_id: u5.id)
+re3 = Review.new(comment: "Zafer la Tamam!", rating: 5, restaurant_id: r4.id, user_id: u5.id)
 re3.save!
 
 puts "Finished populating database!"
