@@ -26,3 +26,13 @@
   <% end %>
   </div>
 </div>
+
+
+
+<% if user_signed_in? && current_user.favorited?(@restaurant) %>
+  <i class="fa-solid fa-star fs-1" style="color:orange"> </i>
+<% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+  <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary"%>
+<% else %>
+  <p> sign up to save your favourite restaurants</p>
+<% end %>

@@ -1,4 +1,5 @@
 class Restaurant < ApplicationRecord
+  acts_as_favoritable
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :working_hours, dependent: :destroy

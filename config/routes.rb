@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :restaurants do
-    resources :reviews # only: [:index, :new, :create]
+    get "favorites", to: "restaurants#add_favorite"
+    resources :reviews
   end
-  # resources :reviews, only: [:show, :edit, :update, :destroy]
+  get "/favorites", to: "favorites#index"
+  delete "/favorites/:id", to: "favorites#destroy", as: :favorite
   resources :tags, only: [:index, :show]
 end
