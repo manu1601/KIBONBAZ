@@ -31,6 +31,7 @@ class RestaurantsController < ApplicationController
     else
       current_user.favorite(@restaurant)
     end
+    redirect_to favorites_path, status: :see_other
   end
 
   def edit
