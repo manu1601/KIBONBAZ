@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:query].present?
       @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
@@ -31,6 +31,12 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @review = Review.new
     @review.restaurant = @restaurant
+  end
+
+  def add_favorite
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    current_user.favorite(@restaurant)
+    redirect_to favorites_path, status: :see_other
   end
 
   def edit

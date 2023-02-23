@@ -98,17 +98,6 @@ u6 = User.new(email: "claire@lewagon.com", password: "123456", username: "@clair
 u6.save!
 puts " Finished creating 3 users as not owner "
 
-puts "creating favourites for users not owner "
-f1 = Favourite.new(user_id: u4.id, restaurant_id: r1.id)
-f1.save!
-f2 = Favourite.new(user_id: u5.id, restaurant_id: r2.id)
-f2.save!
-f3 = Favourite.new(user_id: u4.id, restaurant_id: r3.id)
-f3.save!
-f4 = Favourite.new(user_id: u5.id, restaurant_id: r3.id)
-f4.save!
-puts " finished creating favourites for users not owner "
-
 puts "creating suggestions"
 s1 = Suggestion.new(tag_id: t1.id, restaurant_id: r2.id)
 s1.save!

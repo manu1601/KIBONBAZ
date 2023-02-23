@@ -14,6 +14,7 @@
     <button class="navigate"><%= link_to "Navigate", restaurants_path%><i class="fa-regular fa-compass"></i></i></button>
   </div>
 </div>
+
 <div class="Add_review_container">
     <div class="review_btn">
       <button class="btn_rev btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -39,3 +40,26 @@
     <% end %>
 </div>
 </div>
+
+  <div class="reviews">
+  <h2>Reviews</h2>
+  <% @reviews.each do |review|%>
+  <p><%= review.user.username%></p>
+  <p> Comment: <%= review.comment%></p>
+  <p> Rating: <%= review.rating %></p>
+  <% if review.user == current_user %>
+  <%= link_to "Delete Review", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-gradient" %>
+  <% end %>
+  </div>
+</div>
+
+
+
+<% if user_signed_in? && current_user.favorited?(@restaurant) %>
+  <i class="fa-solid fa-star fs-1" style="color:orange"> </i>
+<% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+  <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary"%>
+<% else %>
+  <p> sign up to save your favourite restaurants</p>
+<% end %>
+
