@@ -29,4 +29,13 @@
       <% end %>
     </div>
   </div>
+<div class="review_container2">
+  <h1>Reviews</h1>
+    <% @restaurant.reviews.each do |review| %>
+      <h4><%= review.user.username %></h4>
+      <h4> Rating <%=review.rating %></h4>
+      <h4><p>Comment</p><%=review.comment %></h4>
+      <br>
+    <% end %>
+</div>
 </div>
