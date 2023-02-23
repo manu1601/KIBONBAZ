@@ -17,20 +17,11 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    if @restaurant.favorited_by?(current_user)
-      current_user.unfavorite(@restaurant)
-    else
-      current_user.favorite(@restaurant)
-    end
   end
 
-  def toggle_favorite
-    @restaurant = Restaurant.find(params[:id])
-    if @restaurant.favorited_by?(current_user)
-      current_user.unfavorite(@restaurant)
-    else
-      current_user.favorite(@restaurant)
-    end
+  def add_favorite
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    current_user.favorite(@restaurant)
     redirect_to favorites_path, status: :see_other
   end
 

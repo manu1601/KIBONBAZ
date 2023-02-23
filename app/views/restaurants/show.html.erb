@@ -10,12 +10,9 @@
 <%= current_user.username %>
 <%= current_user.id %>
 <%= @restaurant.id %>
-<p> <%= current_user.favorited?(@restaurant) %> </p>
-<div id="star">
-  <i class="fa-solid fa-star fs-1"></i>
-</div>
-<%= link_to "add to favorite", toggle_favorite_restaurant_path(@restaurant), remote: true, method: :post %>
-<script>
+
+<%= link_to "add to favorite", restaurant_favorites_path(@restaurant)%>
+<%# <script>
   console.log("hello from restaurants/show.html.erb");
   const star = document.querySelector("#star");
   star.addEventListener("click", (event) => {
@@ -31,4 +28,4 @@
     }
     });
 
-</script>
+</script> %>

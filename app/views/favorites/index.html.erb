@@ -5,5 +5,6 @@
   <%= restaurant.name %>
   <%= restaurant.address %>
   <%= restaurant.contact_number %>
+  <%= link_to "Delete", favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <hr>
 <% end %>
