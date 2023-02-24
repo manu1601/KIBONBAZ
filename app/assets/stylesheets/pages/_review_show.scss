@@ -1,7 +1,7 @@
 .Add_review_container {
   width: 100%;
   height: 400px;
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  background-color: #1f2833;
 }
 
 .btn_rev {
@@ -10,7 +10,7 @@
   border-radius: 20px;
   background-color: white;
   border: solid white 4px;
-  box-shadow: 5px 5px 5px lightgrey;
+  //box-shadow: 5px 5px 5px lightgrey;
   p {
     text-decoration: none;
     color: #E1AF63;
@@ -22,4 +22,5 @@
 
 .review_btn {
   padding-left: 20px;
+  margin-top: 10px;
 }
