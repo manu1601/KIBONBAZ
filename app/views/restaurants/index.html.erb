@@ -1,19 +1,26 @@
+<div class="filterbox">
+<%= form_with url: restaurants_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for a Restaurant"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+</div>
+
 <div class="container">
-<h1> Visitors/users not signed in & signed in/owner's not signed in - Display all restaurants</h1>
-<h1> owner signed in --> Display only his restaurants</h1>
+  <%# <h1> Visitors/users not signed in & signed in/owner's not signed in - Display all restaurants</h1> %>
+  <%# <h1> owner signed in --> Display only his restaurants</h1> %>
 </div>
 
 <% if user_signed_in? %>
-  <hr>
-  <p><%=current_user%> </p>
-  <p><%=current_user.username%> signed in!</p>
-  <p><%=current_user.email%> </p>
-  <p>owner :<%=current_user.owner%> </p>
-  <hr>
+  <p><%current_user%> </p>
+  <p><%current_user.username%></p>
+  <p><%current_user.email%> </p>
+  <p><%current_user.owner%> </p>
 <%else%>
-<hr>
   <p> no one signed in</p>
-<hr>
 <%end%>
 <!--display all restaurants that belong to the owner use -->
 
@@ -22,29 +29,27 @@
 <% if user_signed_in? && current_user.owner == true%>
   <h1>your restaurants!</h1>
   <%=link_to "Add restaurant", new_restaurant_path, class: " btn btn-primary " %>
-  <hr>
   <% owner_restaurants =  @restaurants.select do |restaurant|%>
     <%restaurant.user_id == current_user.id%>
   <% end%>
   <%#= owner_restaurants %>
-  <hr>
   <% owner_restaurants.each do |owner_restaurant| %>
-    <p>****<%= owner_restaurant.name %></p>
-    <br>
-    <p>****<%= owner_restaurant.address %></p>
-    <br>
-    <p>****<%= owner_restaurant.contact_number %></p>
+    <p>****<% owner_restaurant.name %></p>
+    <p>****<% owner_restaurant.address %></p>
+    <p>****<% owner_restaurant.contact_number %></p>
   <hr>
   <%end%>
 
 <%else%>
   <%@restaurants.each do |restaurant|%>
-    <h1> all restaurants!</h1>
-    <p>###<%= restaurant.name %></p>
-    <br>
-    <p>###<%= restaurant.address %></p>
-    <br>
-    <p>###<%= restaurant.contact_number %></p>
+    <% restaurant.name %>
+    <% restaurant.address %>
+    <% restaurant.contact_number %>
   <%end%>
-  <hr>
 <%end%>
+
+<div id="map" style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
+
   def index
     @reviews = Review.all
   end
@@ -13,6 +15,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @review.restaurant = @restaurant
     @review.user = current_user
     @review.save
