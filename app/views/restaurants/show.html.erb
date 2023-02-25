@@ -21,7 +21,7 @@
     <p><i class="fa-solid fa-phone"></i><%= @restaurant.contact_number %></p>
   </div>
   <div class="buttons">
-    <button class="navigate"><%= link_to "Navigate", restaurants_path%><i class="fa-regular fa-compass"></i></i></button>
+    <button class="navigate"><%= link_to "Navigate", restaurants_path, data:{turbo: false}%><i class="fa-regular fa-compass"></i></i></button>
   </div>
   <div class="Add_review_container">
     <div class="review_btn">
