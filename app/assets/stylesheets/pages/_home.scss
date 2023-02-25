@@ -1,10 +1,9 @@
 .homepage_container {
   background-color: white;
   width: 100%;
-  height: 100%;
+  height: 2000px;
   margin-top: 0px;
   background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
-  object-fit: contain;
 }
 
 .kibon {
@@ -47,29 +46,32 @@
 .how_it_works {
   width: 100%;
   height: 100px;
-  background-color: white;
+  padding-top: 100px;
   align-items: center;
+  justify-content: center;
+  background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
   h1 {
     color: #1f2833;
     text-align: center;
     font-weight: bolder;
     font-family: 'Alfa Slab One', cursive;
   }
-
 }
 
 .hiw_card {
   height: 500px;
-  h2 {
+  padding-top: 40px;
+  h3 {
     font-weight: bold;
     font-family: 'Alfa Slab One', cursive;
-    color: #E9BE78;
+    color: #1f2833;
   }
   p {
     font-size: 20px;
-    font-family: 'Alfa Slab One', cursive;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
   }
-  background-color: white;
+  background-color: transparent;
   text-align: center;
 }
 
@@ -133,11 +135,4 @@
     text-decoration: none;
     color: white;
   }
-}
-
-.how_it_works {
-  padding-top: 50px;
-  width: 100%;
-  height: 500px;
-  background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
 }
