@@ -9,9 +9,10 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
+
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/manu1601/clejq9tf3001x01o30ywg5tcd"
     });
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -40,21 +41,21 @@ export default class extends Controller {
   }
 }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFudTE2MDEiLCJhIjoiY2xlN2N2bmt5MDRhZTNxbnp2cGdoOHlrNCJ9.xO5W6wuqoE3YTEqTRkU6Fg';
-const map = new mapboxgl.Map({
-container: 'map',
-// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-style: 'mapbox://styles/mapbox/streets-v12',
-center: [-24, 42], // starting center in [lng, lat]
-zoom: 1 // starting zoom
-});
+// mapboxgl.accessToken = 'pk.eyJ1IjoibWFudTE2MDEiLCJhIjoiY2xlN2N2bmt5MDRhZTNxbnp2cGdoOHlrNCJ9.xO5W6wuqoE3YTEqTRkU6Fg';
+// const map = new mapboxgl.Map({
+// container: 'map',
+// // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+// style: 'mapbox://styles/mapbox/streets-v12',
+// center: [-24, 42], // starting center in [lng, lat]
+// zoom: 1 // starting zoom
+// });
 
-map.addControl(
-new MapboxDirections({
-accessToken: mapboxgl.accessToken
-}),
-'top-left'
-);
+// map.addControl(
+// new MapboxDirections({
+// accessToken: mapboxgl.accessToken
+// }),
+// 'top-left'
+// );
 
 
 // map.addControl(

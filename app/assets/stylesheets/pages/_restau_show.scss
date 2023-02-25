@@ -3,11 +3,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  //background-image: url();
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 10px;
   width: 100vw;
-  background-color: #1f2833;
+  background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
 }
 
 .restau_image {
@@ -62,9 +61,9 @@
   width: 349px;
   height: 60px;
   border-radius: 20px;
-  background-color: #E1AF63;
-  border: solid #E1AF63 4px;
-  //box-shadow: 5px 5px 5px lightgrey;
+  background-color: #1f2833;
+  border: solid #1f2833 2px;
+  box-shadow: 5px 5px 5px lightgrey;
   a {
     text-decoration: none;
     color: white;
