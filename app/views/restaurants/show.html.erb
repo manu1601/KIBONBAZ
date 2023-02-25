@@ -1,7 +1,7 @@
 <div class="show_cont">
   <div class="restau_image">
     <% @restaurant.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
     <div class="fav">
       <% if user_signed_in? && current_user.favorited?(@restaurant) %>
@@ -35,32 +35,26 @@
         <%= simple_form_for [ @restaurant, @review ] do |f| %>
         <%= f.input :comment %>
         <%= f.input :rating, collection: (1..5).to_a, label:"Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <%= f.submit "Submit review", class: " btn btn-info" %>
         <% end %>
       </div>
     </div>
-  <div class="review_container2">
-    <br>
-    <h1>Reviews</h1>
-      <% @restaurant.reviews.each do |review| %>
-        <h4><%= review.user.username %></h4>
-        <h4> Rating <%=review.rating %></h4>
-        <h4><p>Comment</p><%=review.comment %></h4>
-        <br>
+  <p>
+  <button class="btn btn-info rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+    Restaurant Reviews
+  </button>
+  </p>
+  <div style="min-height: 120px;">
+    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+      <div class="card card-body" style="width: 300px;">
+        <% @reviews.each do |review| %>
+          <%= review.user.username %>
+          <p>comment: <%= review.comment%></p>
+          <p> rating: <%= r = review.rating %></p>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
 
-  <div class="reviews">
-    <h2>Reviews</h2>
-    <% @reviews.each do |review|%>
-      <p><%= review.user.username%></p>
-      <p> Comment: <%= review.comment%></p>
-      <p> Rating: <%= review.rating %></p>
-      <% if review.user_id == current_user %>
-        <%= link_to "Delete Review", restaurant_review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-gradient" %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<!--bootstrap-->
