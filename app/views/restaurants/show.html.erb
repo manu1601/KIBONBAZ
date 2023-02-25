@@ -29,12 +29,12 @@
       <p>Add a Review<i class="fa-regular fa-pen-to-square" style="color:#E1AF63"></i></p>
       </button>
     </div>
-    
+
     <div class="collapse" id="collapseExample">
       <div class="card card-body">
         <%= simple_form_for [ @restaurant, @review ] do |f| %>
         <%= f.input :comment %>
-        <%= f.input :rating %>
+        <%= f.input :rating, collection: (1..5).to_a, label:"Rate your experience", input_html: {data: {controller: "star-rating"}} %>
         <%= f.submit "Submit review", class: "btn btn-primary" %>
         <% end %>
       </div>
