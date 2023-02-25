@@ -15,7 +15,7 @@
         <%= image_tag "smartphone"%>
         <div class="animation">
           <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-          <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_85f8DL.json"  background="transparent"  speed="0.6"  style="width: 140px; height: 310px;" hover   autoplay></lottie-player>
+          <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_85f8DL.json"  background="transparent"  speed="0.2"  style="width: 140px; height: 300px;" hover   autoplay></lottie-player>
         </div>
         <div class="icon1">
           <%= image_tag "icon-k", height: 35, width: 35, alt: "marker"%>
@@ -34,7 +34,7 @@
         <%= image_tag "rasta", height: 400, width: 200, alt: "rasta"%>
       </div>
       <div class="Get_Started">
-        <button class= "Gst_btn">Get Started</button>
+        <button class= "Gst_btn"><%= link_to "Get Started", restaurants_path%></button>
       </div>
   </div>
 </div>
