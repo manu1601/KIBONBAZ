@@ -25,8 +25,8 @@
     <div class="card card-body">
       <%= simple_form_for [ @restaurant, @review ] do |f| %>
       <%= f.input :comment %>
-      <%= f.input :rating %>
-      <%= f.submit "Submit review", class: "btn btn-gradient" %>
+      <%= f.input :rating, collection: (1..5).to_a, label:"Rate your experience" %>
+      <%= f.submit "Submit review", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
@@ -48,7 +48,7 @@
       <p> Comment: <%= review.comment%></p>
       <p> Rating: <%= review.rating %></p>
       <% if review.user == current_user %>
-        <%= link_to "Delete Review", restaurant_review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-gradient" %>
+        <%= link_to "Delete Review", restaurant_review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>
