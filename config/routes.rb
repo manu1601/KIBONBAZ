@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :restaurants do
     get "favorites", to: "restaurants#add_favorite"
-    resources :reviews, only: [:index]
+    resources :reviews, except: [:index]
   end
   get "/favorites", to: "favorites#index"
   delete "/favorites/:id", to: "favorites#destroy", as: :favorite
