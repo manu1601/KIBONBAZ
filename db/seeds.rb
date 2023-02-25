@@ -37,7 +37,7 @@ w2.save!
 puts " Finished creating first restaurant working hours w2"
 
 file = URI.open("https://images.pexels.com/photos/2664216/pexels-photo-2664216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
-r2 = Restaurant.new(name: "La Terrasse", address: "Loterie, Lislet Geoffrey Street, Cité Joachim, Floreal, Curepipe, Plaines Wilhems, Mauritius", contact_number: "57752952", user_id: u2.id)
+r2 = Restaurant.new(name: "La Bonne Fourchette", address: "Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "57752952", user_id: u2.id)
 r2.photos.attach(io: file, filename: "r2.jpeg", content_type: "image/jpeg")
 r2.save!
 puts " Finished creating 2nd restaurant"
@@ -49,7 +49,7 @@ w4.save!
 puts " Finished creating 2nd restaurant working hours w4"
 
 file = URI.open("https://images.pexels.com/photos/186861/pexels-photo-186861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
-r3 = Restaurant.new(name: "Kot Papi", address: "Gustave Bestel St, Curepipe", contact_number: "59891273", user_id: u3.id)
+r3 = Restaurant.new(name: "Golden Panda", address: "Helvétia, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "59891273", user_id: u3.id)
 r3.photos.attach(io: file, filename: "r3.jpeg", content_type: "image/jpeg")
 r3.save!
 puts " Finished creating 3rd restaurant"
@@ -69,7 +69,7 @@ puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r5 = Restaurant.new(name: "saffron grill", address: "Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
+r5 = Restaurant.new(name: "saffron grill", address: "Kendra Shopping Mall, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r5.photos.attach(io: file, filename: "r5.jpeg", content_type: "image/jpeg")
 r5.save!
 puts " Finished creating 4th restaurant"
@@ -79,7 +79,7 @@ puts " Finished creating 4th restaurant working hours w6"
 puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
-file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
+file = URI.open("https://images.pexels.com/photos/7353393/pexels-photo-7353393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 r6 = Restaurant.new(name: "star deg", address: "B49, Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81402, Mauritius", contact_number: "4334325", user_id: u1.id)
 r6.photos.attach(io: file, filename: "r6.jpeg", content_type: "image/jpeg")
 r6.save!
@@ -90,8 +90,8 @@ puts " Finished creating 4th restaurant working hours w6"
 puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
-file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
-r7 = Restaurant.new(name: "B&G", address: "Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
+file = URI.open("https://images.pexels.com/photos/104884/pexels-photo-104884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+r7 = Restaurant.new(name: "B&G", address: "L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r7.photos.attach(io: file, filename: "r7.jpeg", content_type: "image/jpeg")
 r7.save!
 puts " Finished creating 4th restaurant"
