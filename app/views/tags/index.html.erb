@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-4">
-      <p><%= @tags.count %> tags </p>
-      <hr>
       <% @tags.each do |tag| %>
-        <%= link_to tag.name_tag, tag_path(tag), class: "btn btn-primary" %>
-        <%= cl_image_tag tag.photo.key, height: 300, width: 400, crop: :fill %>
-        <hr>
+        <div class="card bg-dark text-white mb-1 border-0 shadow p-3 mt-4 mb-4 bg-body rounded">
+           <%= cl_image_tag tag.photo.key, crop: :fill %>
+          <div class="card-img-overlay">
+            <%= link_to tag.name_tag, tag_path(tag), class: "btn btn-info" %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

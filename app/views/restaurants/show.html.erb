@@ -3,43 +3,56 @@
     <% @restaurant.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
+    <div class="fav">
+      <% if user_signed_in? && current_user.favorited?(@restaurant) %>
+        <i class="fa-regular fa-heart fs-1" style="color:red"> </i>
+      <% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+        <%# <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary" %>
+        <button class="heart"><%= link_to "fav", restaurant_favorites_path(@restaurant) %><i class="fa-regular fa-heart fs-1" style="color:black"> </i></i></button>
+      <% else %>
+        <p> sign up to save your favourite restaurants</p>
+      <% end %>
+    </div>
   </div>
+
   <div class="restau_info">
     <h1><strong><%= @restaurant.name %></strong></h1>
     <p><i class="fa-solid fa-location-dot"></i><%= @restaurant.address %></p>
-    <p><%#= @restaurant.rating %></p>
     <p><i class="fa-solid fa-phone"></i><%= @restaurant.contact_number %></p>
   </div>
   <div class="buttons">
     <button class="navigate"><%= link_to "Navigate", restaurants_path%><i class="fa-regular fa-compass"></i></i></button>
   </div>
-</div>
-
-<div class="Add_review_container">
+  <div class="Add_review_container">
     <div class="review_btn">
       <button class="btn_rev btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      <p>Add a Review<i class="fa-regular fa-pen-to-square"></i></p>
+      <p>Add a Review<i class="fa-regular fa-pen-to-square" style="color:#E1AF63"></i></p>
       </button>
     </div>
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      <%= simple_form_for [ @restaurant, @review ] do |f| %>
-      <%= f.input :comment %>
-      <%= f.input :rating %>
-      <%= f.submit "Submit review", class: "btn btn-gradient" %>
+
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <%= simple_form_for [ @restaurant, @review ] do |f| %>
+        <%= f.input :comment %>
+        <%= f.input :rating, collection: (1..5).to_a, label:"Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  <div class="review_container2">
+    <br>
+    <h1>Reviews</h1>
+      <% @restaurant.reviews.each do |review| %>
+        <h4><%= review.user.username %></h4>
+        <h4> Rating <%=review.rating %></h4>
+        <h4><p>Comment</p><%=review.comment %></h4>
+        <br>
       <% end %>
     </div>
   </div>
-<div class="review_container2">
-  <h1>Reviews</h1>
-    <% @restaurant.reviews.each do |review| %>
-      <h4><%= review.user.username %></h4>
-      <h4> Rating <%=review.rating %></h4>
-      <h4><p>Comment</p><%=review.comment %></h4>
-      <br>
-    <% end %>
 </div>
-</div>
+
+
 
   <div class="reviews">
     <h2>Reviews</h2>
@@ -47,19 +60,9 @@
       <p><%= review.user.username%></p>
       <p> Comment: <%= review.comment%></p>
       <p> Rating: <%= review.rating %></p>
-      <% if review.user == current_user %>
+      <% if review.user_id == current_user %>
         <%= link_to "Delete Review", restaurant_review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-gradient" %>
       <% end %>
     <% end %>
   </div>
 </div>
-
-
-
-<% if user_signed_in? && current_user.favorited?(@restaurant) %>
-  <i class="fa-solid fa-star fs-1" style="color:orange"> </i>
-<% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
-  <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary"%>
-<% else %>
-  <p> sign up to save your favourite restaurants</p>
-<% end %>

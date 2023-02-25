@@ -1,19 +1,19 @@
 .Add_review_container {
   width: 100%;
   height: 400px;
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
 }
 
 .btn_rev {
   width: 349px;
   height: 60px;
   border-radius: 20px;
-  background-color: white;
-  border: solid white 4px;
+  background-color: #E1AF63;
+  border: solid #E1AF63 2px;
   box-shadow: 5px 5px 5px lightgrey;
   p {
     text-decoration: none;
-    color: #E1AF63;
+    color: white;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
@@ -22,4 +22,5 @@
 
 .review_btn {
   padding-left: 20px;
+  margin-top: 10px;
 }

@@ -26,17 +26,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = Review.find(params[:id])
-  end
-
-  def update
-    @review = Review.find(params[:id])
-    @review.update(restaurant_params)
-    # No need for app/views/restaurants/update.html.erb
-    redirect_to restaurant_path(@restaurant)
-  end
-
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
