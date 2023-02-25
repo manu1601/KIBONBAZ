@@ -93,10 +93,11 @@
 
 .fav {
   position: relative;
-  padding-left: 255px;
-  margin-top: -430px;
-
+  padding-left: 280px;
+  margin-top: -435px;
   .heart {
   border-radius: 50%;
+  border: transparent;
+  background-color: transparent;
   }
 }
