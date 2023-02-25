@@ -8,7 +8,7 @@
         <%= restaurant.name %>
         <%= restaurant.address %>
         <%= restaurant.contact_number %>
-        <%= link_to "Delete", favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary" %>
+        <%= link_to "Delete!", favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary" %>
         <hr>
       <% end %>
     </div>
