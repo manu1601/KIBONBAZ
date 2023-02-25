@@ -112,24 +112,38 @@ puts " Finished creating restaurants"
 
 puts "creating tags"
 t1 = Tag.new(name_tag: "Briyani")
+file = URI.open("https://images.pexels.com/photos/5410401/pexels-photo-5410401.jpeg?auto=compress&cs=tinysrgb&w=1200")
+t1.photo.attach(io: file, filename: "t1.jpeg", content_type: "image/jpeg")
 t1.save!
 t2 = Tag.new(name_tag: "Kebab")
+file = URI.open("https://images.pexels.com/photos/13201082/pexels-photo-13201082.jpeg")
+t2.photo.attach(io: file, filename: "t2.jpeg", content_type: "image/jpeg")
 t2.save!
 t3 = Tag.new(name_tag: "fried-noodles")
+file = URI.open("https://images.pexels.com/photos/5848498/pexels-photo-5848498.jpeg?auto=compress&cs=tinysrgb&w=800")
+t3.photo.attach(io: file, filename: "t3.jpeg", content_type: "image/jpeg")
 t3.save!
 t4 = Tag.new(name_tag: "ice-cream")
+file = URI.open("https://www.biggerbolderbaking.com/wp-content/uploads/2020/01/2-Ingredient-Ice-cream-Thumbnail-scaled.jpg")
+t4.photo.attach(io: file, filename: "t4.jpeg", content_type: "image/jpeg")
 t4.save!
-t5 = Tag.new(name_tag: "mine frites")
+t5 = Tag.new(name_tag: "dholl puri")
+file = URI.open("https://lacazemama.com/au/wp-content/uploads/2018/02/Dal-Puri.png")
+t5.photo.attach(io: file, filename: "t5.jpeg", content_type: "image/jpeg")
 t5.save!
-t6 = Tag.new(name_tag: "dholl puri")
+t6 = Tag.new(name_tag: "roti")
+file = URI.open("https://vacancesmaurice.com/slir/w854/content/images/guide/i-422/roti.jpg")
+t6.photo.attach(io: file, filename: "t6.jpeg", content_type: "image/jpeg")
 t6.save!
-t7 = Tag.new(name_tag: "roti")
+t7 = Tag.new(name_tag: "Burger")
+file = URI.open("https://images.pexels.com/photos/8769141/pexels-photo-8769141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+t7.photo.attach(io: file, filename: "t7.jpeg", content_type: "image/jpeg")
 t7.save!
-t8 = Tag.new(name_tag: "Burger")
+t8 = Tag.new(name_tag: "BBQ")
+file = URI.open("https://nationaltoday.com/wp-content/uploads/2021/05/National-BBQ-Day-1-640x514.jpg")
+t8.photo.attach(io: file, filename: "t8.jpeg", content_type: "image/jpeg")
 t8.save!
-t9 = Tag.new(name_tag: "BBQ")
-t9.save!
-puts " Finished creating 9 tags"
+puts " Finished creating 8 tags"
 
 puts 'creating 3 users as not -owner'
 u4 = User.new(email: "alex@lewagon.com", password: "123456", username: "@alex", owner: false)
