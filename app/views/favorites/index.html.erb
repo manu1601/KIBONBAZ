@@ -1,16 +1,24 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-12 col-lg-4">
-      <h1> All your favourite restaurants</h1>
-      <p>  <%= current_user.username %> you are logged in !!!! </p>
-      <% @favorites.each do |favorite| %>
-        <%restaurant = Restaurant.find_by(id: favorite.favoritable_id) %>
-        <%= restaurant.name %>
-        <%= restaurant.address %>
-        <%= restaurant.contact_number %>
-        <%= link_to "Delete!", favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary" %>
-        <hr>
-      <% end %>
+<div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-4">
+        <div class="shadow-lg p-3 mb-3 bg-warning bg-opacity-25 mt-3 ">
+          <h1 style="text-align:center;"> My favourites</h1>
+        </div>
+        <% @favorites.each do |favorite| %>
+          <div class="card border-0 mb-3" style="width: 23rem;">
+          <%restaurant = Restaurant.find_by(id: favorite.favoritable_id) %>
+          <% r = restaurant.photos[0] %>
+          <%= cl_image_tag r.key, crop: :fill, class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text"><%= restaurant.address %></p>
+            <p class="card-text"><%= restaurant.contact_number %></p>
+            <%= link_to (render "remove"), favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+            <%= link_to"navigate","" %>
+             <%= link_to"add review","" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 </div>
