@@ -1,41 +1,49 @@
-<div class="container ">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-lg-4">
-        <div class="shadow-lg p-3 mb-3 bg-info mt-3 rounded-pill">
-          <%= link_to (render "back"), restaurants_path%>
-          <h1 class="d-inline ms-5 fw-bolder"> My favourites</h1>
-        </div>
-
-        <% @favorites.each do |favorite| %>
-          <div class="card border-0 mb-3 rounded-5" style="width: 23rem;">
-          <%restaurant = Restaurant.find_by(id: favorite.favoritable_id) %>
-          <% r = restaurant.photos[0] %>
-          <%= cl_image_tag r.key, crop: :fill, class: "card-img-top rounded-5" %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-4">
+      <% @favorites.each do |favorite| %>
+        <div class="card" style="width: 23rem;">
+          <%@restaurant = Restaurant.find_by(id:favorite.favoritable_id)  %>
+          <%= cl_image_tag @restaurant.photos[0].key, crop: :fill, class: "card-img-top" %>
           <div class="card-body">
-            <button class="btn btn-info card-title text-center fw-bolder mb-3 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              <%= restaurant.name %>
-            </button>
+            <%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info"  %>
+            <%@review = Review.new  %>
+            <%@review.restaurant = @restaurant %>
+      <!--add review button-->
+            <i class="fa-solid fa-pen-to-square"
+              type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              style="color:black;">
+            </i>
             <div class="collapse" id="collapseExample">
-              <div class="card card-body border border-0 mb-2 border-dark rounded-5 shadow-sm p-3 bg-info opacity-75">
-                <table>
-                  <tr>
-                    <td class="card-text fw-bold fst-italic fs-5"> Address: <%= restaurant.address %></td>
-                  </tr>
-                  <tr>
-                    <td class="card-text fw-bold fst-italic fs-5"> Contact n0: <%= restaurant.contact_number %></td>
-                  </tr>
-                </table>
+              <div class="card card-body">
+                <%= render "review_form", restaurant: @restaurant, review: @review %>
               </div>
             </div>
-            <div class="d-flex justify-content-evenly bg-info rounded-pill">
-              <%= link_to (render "remove"), favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-              <%= link_to (render "navigate"),""%>
-              <%= link_to (render "read"),"" %>
-              <%= link_to (render "write"), "" %>
+      <!--add review button end-->
+      <!--readreview button start-->
+            <%@reviews = @restaurant.reviews %>
+            <i class="fa-solid fa-users-viewfinder"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              style ="color:black;">
+            </i>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <%= render "review_list", reviews: @reviews, review: @review %>
+              </div>
             </div>
+      <!--read review button end-->
+            <%= link_to (render "remove"),favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to (render "navigate"), restaurants_path %>
           </div>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
+  </div>
 </div>
