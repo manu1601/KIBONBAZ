@@ -9,7 +9,7 @@
       <% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
         <%# <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary" %>
         <%= link_to restaurant_favorites_path(@restaurant) do %>
-          <button class="heart"><i class="fa-sharp fa-solid fa-heart" style="color:black"> </i></i></button>
+          <button class="heart"><i class="fa-solid fa-heart" style="color: white"> </i></i></button>
         <% end %>
       <% else %>
         <p> sign up to save your favourite restaurants</p>
@@ -41,16 +41,18 @@
         <% end %>
       </div>
     </div>
-  <p>
-  <button class="btn btn-info rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-    Restaurant Reviews
-  </button>
-  </p>
+  <div class="btn_rev2_div">
+    <p>
+      <button class="btn_rev2 btn-btn primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Reviews <i class="fa-regular fa-star" style="color:#E1AF63"></i>
+      </button>
+    </p>
+  </div>
   <div style="min-height: 120px;">
-    <div class="collapse collapse-horizontal" id="collapseWidthExample">
-      <div class="card card-body" style="width: 300px;">
+    <div class="collapse collapse-vertical" id="collapseWidthExample">
+      <div class="card card-body" >
         <% @reviews.each do |review| %>
-          <%= review.user.username %>
+          <p><strong><%= review.user.username %></strong></p>
           <p>comment: <%= review.comment%></p>
           <p> rating: <%= r = review.rating %></p>
       <% end %>

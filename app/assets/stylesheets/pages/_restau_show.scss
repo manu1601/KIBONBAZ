@@ -85,19 +85,17 @@
   font-size: 25px;
 }
 
-.filterbox {
-  width: 95%;
-  height: 200px;
-  padding-top: 90px;
-}
 
 .fav {
   position: relative;
-  padding-left: 280px;
-  margin-top: -435px;
+  padding-left: 290px;
+  margin-top: -440px;
   .heart {
   border-radius: 50%;
   border: transparent;
   background-color: transparent;
+  padding: 1px;
+  margin: 0;
+  -webkit-text-stroke: 2px black;
   }
 }

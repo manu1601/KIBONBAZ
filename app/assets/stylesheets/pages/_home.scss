@@ -1,7 +1,7 @@
 .homepage_container {
   background-color: white;
   width: 100%;
-  height: 2000px;
+  height: 1200px;
   margin-top: 0px;
   background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
 }
@@ -30,7 +30,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .subtitle {
@@ -46,7 +46,7 @@
 .how_it_works {
   width: 100%;
   height: 100px;
-  padding-top: 90px;
+  padding-top: 140px;
   align-items: center;
   justify-content: center;
   background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
@@ -76,7 +76,7 @@
 }
 
 .phone {
-  padding-top: 20px;
+  padding-top: 40px;
   padding-left: 160px;
 }
 
@@ -115,7 +115,17 @@
 .rasta {
   position: absolute;
   margin-top: -360px;
-  margin-left: -20px;
+  margin-left: -17px;
+}
+
+.rasta{
+  animation: floating 1.6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 5px); }
+  100%   { transform: translate(0, 0px); }
 }
 
 .Get_Started {
