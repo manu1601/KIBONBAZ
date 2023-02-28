@@ -1,13 +1,20 @@
-<div class="filterbox">
-<%= form_with url: restaurants_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search for a Restaurant"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-</div>
+<!--front-end-->
+<%# <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-4"> %>
+      <div class="filterbox ">
+        <%= form_with url: restaurants_path, method: :get, class: "d-flex, " do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control, w-50",
+            placeholder: "Search for a Restaurant"
+          %>
+          <%= submit_tag "Search", class: "btn btn-info rounded-pill ms-3" %>
+        <% end %>
+      </div>
+    <%# </div>
+  </div>
+</div> %>
 
 <div class="container">
   <%# <h1> Visitors/users not signed in & signed in/owner's not signed in - Display all restaurants</h1> %>
