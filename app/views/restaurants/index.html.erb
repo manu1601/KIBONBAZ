@@ -2,10 +2,10 @@
 <%= form_with url: restaurants_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control-index",
     placeholder: "Search for a Restaurant"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn btn-dark" %>
 <% end %>
 </div>
 

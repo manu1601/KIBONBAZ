@@ -20,7 +20,25 @@
   }
 }
 
+.btn_rev2_div {
+padding-left: 20px;
+}
+
+.btn_rev2 {
+  width: 349px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #E1AF63;
+  border: solid white 2px;
+  box-shadow: 5px 5px 5px lightgrey;
+}
+
 .review_btn {
   padding-left: 20px;
   margin-top: 10px;
+  margin-bottom: 15px;
 }
