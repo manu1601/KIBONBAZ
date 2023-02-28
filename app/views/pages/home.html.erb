@@ -34,21 +34,34 @@
         <%= image_tag "rasta.png", height: 400, width: 200, alt: "rasta"%>
       </div>
       <div class="Get_Started">
-        <button class= "Gst_btn"><%= link_to "Get Started", restaurants_path%></button>
+        <button class= "Gst_btn"><%= link_to "Get Started", restaurants_path , data:{turbo: false} %></button>
       </div>
   </div>
 
   <div class="how_it_works">
+    <h1>Ki Déroulé?<p>(How it works)</h1></p>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= image_tag "image1.png" %>
+          <div class="hiw_card">
+            <%= image_tag "image1.png" %>
+            <h3>Pick</h3>
+            <p>Pick a Restaurant</p>
+          </div>
         </div>
         <div class="carousel-item">
-          <%= image_tag "image2.png" %>
+          <div class="hiw_card">
+            <%= image_tag "image2.png" %>
+            <h3>Navigate</h3>
+            <p>Use the Map to Navigate to the Restaurant</p>
+          </div>
         </div>
         <div class="carousel-item">
-          <%= image_tag "image3.png" %>
+          <div class="hiw_card">
+            <%= image_tag "image3.png" %>
+            <h3>Enjoy</h3>
+            <p>Enjoy your food!</p>
+          </div>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

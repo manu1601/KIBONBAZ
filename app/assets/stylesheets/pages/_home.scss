@@ -1,10 +1,9 @@
 .homepage_container {
   background-color: white;
   width: 100%;
-  height: 100%;
+  height: 1200px;
   margin-top: 0px;
   background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
-  object-fit: contain;
 }
 
 .kibon {
@@ -31,7 +30,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .subtitle {
@@ -47,34 +46,37 @@
 .how_it_works {
   width: 100%;
   height: 100px;
-  background-color: white;
+  padding-top: 140px;
   align-items: center;
+  justify-content: center;
+  background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
   h1 {
     color: #1f2833;
     text-align: center;
     font-weight: bolder;
     font-family: 'Alfa Slab One', cursive;
   }
-
 }
 
 .hiw_card {
   height: 500px;
-  h2 {
+  padding-top: 40px;
+  h3 {
     font-weight: bold;
     font-family: 'Alfa Slab One', cursive;
-    color: #E9BE78;
+    color: #1f2833;
   }
   p {
     font-size: 20px;
-    font-family: 'Alfa Slab One', cursive;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
   }
-  background-color: white;
+  background-color: transparent;
   text-align: center;
 }
 
 .phone {
-  padding-top: 20px;
+  padding-top: 40px;
   padding-left: 160px;
 }
 
@@ -113,19 +115,29 @@
 .rasta {
   position: absolute;
   margin-top: -360px;
-  margin-left: -20px;
+  margin-left: -17px;
+}
+
+.rasta{
+  animation: floating 1.6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 5px); }
+  100%   { transform: translate(0, 0px); }
 }
 
 .Get_Started {
   position: absolute;
-  padding-left: 150px;
+  padding-left: 138px;
 }
 
 .Gst_btn {
   background-color: #1f2833;
   color: white;
-  width: 180px;
-  height: 50px;
+  width: 200px;
+  height: 60px;
   border-radius: 15px;
   font-size: 20px;
   font-family: 'Poppins', sans-serif;
@@ -133,11 +145,4 @@
     text-decoration: none;
     color: white;
   }
-}
-
-.how_it_works {
-  padding-top: 50px;
-  width: 100%;
-  height: 500px;
-  background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
 }

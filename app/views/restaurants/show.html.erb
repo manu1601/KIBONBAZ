@@ -8,7 +8,9 @@
         <i class="fa-regular fa-heart fs-1" style="color:red"> </i>
       <% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
         <%# <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary" %>
-        <button class="heart"><%= link_to "fav", restaurant_favorites_path(@restaurant) %><i class="fa-regular fa-heart fs-1" style="color:black"> </i></i></button>
+        <%= link_to restaurant_favorites_path(@restaurant) do %>
+          <button class="heart"><i class="fa-solid fa-heart" style="color: white"> </i></i></button>
+        <% end %>
       <% else %>
         <p> sign up to save your favourite restaurants</p>
       <% end %>
@@ -21,12 +23,12 @@
     <p><i class="fa-solid fa-phone"></i><%= @restaurant.contact_number %></p>
   </div>
   <div class="buttons">
-    <button class="navigate"><%= link_to "Navigate", restaurants_path%><i class="fa-regular fa-compass"></i></i></button>
+    <button class="navigate"><%= link_to "Navigate", restaurants_path, data:{turbo: false}%><i class="fa-regular fa-compass"></i></i></button>
   </div>
   <div class="Add_review_container">
     <div class="review_btn">
       <button class="btn_rev btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      <p>Add a Review<i class="fa-regular fa-pen-to-square" style="color:#E1AF63"></i></p>
+      <p>Add a Review<i class="fa-regular fa-pen-to-square" style="color:white"></i></p>
       </button>
     </div>
 
@@ -39,21 +41,21 @@
         <% end %>
       </div>
     </div>
-
+  <div class="btn_rev2_div">
     <p>
-    <button class="btn btn-info rounded mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-      Restaurant Reviews
-    </button>
+      <button class="btn_rev2 btn-btn primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Reviews <i class="fa-regular fa-star" style="color:#E1AF63"></i>
+      </button>
     </p>
-    <div style="min-height: 120px;">
-      <div class="collapse collapse-horizontal" id="collapseWidthExample">
-        <div class="card card-body border-0 shadow-sm p-3 mb-5 bg-body rounded ms-3" style="width: 300px;">
-          <% @reviews.each do |review| %>
-            <%= review.user.username %>
-            <p>comment: <%= review.comment%></p>
-            <p> rating: <%= r = review.rating %></p>
-          <% end %>
-        </div>
+  </div>
+  <div style="min-height: 120px;">
+    <div class="collapse collapse-vertical" id="collapseWidthExample">
+      <div class="card card-body" >
+        <% @reviews.each do |review| %>
+          <p><strong><%= review.user.username %></strong></p>
+          <p>comment: <%= review.comment%></p>
+          <p> rating: <%= r = review.rating %></p>
+      <% end %>
       </div>
     </div>
 

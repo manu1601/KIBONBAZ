@@ -62,8 +62,8 @@
 </div>
 
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoibWFudTE2MDEiLCJhIjoiY2xlN2N2bmt5MDRhZTNxbnp2cGdoOHlrNCJ9.xO5W6wuqoE3YTEqTRkU6Fg';
-const map = new mapboxgl.Map({
+	mapboxgl.accessToken ="<%= ENV['MAPBOX_API_KEY'] %>";
+let map2 = new mapboxgl.Map({
 container: 'map',
 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
 style: 'mapbox://styles/mapbox/streets-v12',
@@ -71,10 +71,10 @@ center: [-79.4512, 43.6568],
 zoom: 13
 });
 
-map.addControl(
-new MapboxDirections({
-accessToken: mapboxgl.accessToken
-}),
-'top-left'
+map2.addControl(
+    new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+    }),
+    'top-left'
 );
 </script>
