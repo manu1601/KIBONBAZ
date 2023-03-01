@@ -5,7 +5,6 @@
     <% end %>
     <div class="fav">
       <% if user_signed_in? && current_user.favorited?(@restaurant) %>
-        <i class="fa-regular fa-heart fs-1" style="color:red"> </i>
       <% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
         <%# <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary" %>
         <%= link_to restaurant_favorites_path(@restaurant) do %>
