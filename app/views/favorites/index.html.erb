@@ -11,56 +11,73 @@
             <button class="btn  rounded-pill me-2" type="submit"><i class="fa-solid fa-magnifying-glass p-0 text-black "></i></button>
           </form>
         </div>
-
-      <% @favorites.each do |favorite| %>
-        <div class="card mt-3 border-0 rounded-5" style="width: 23rem;">
-          <%@restaurant = Restaurant.find_by(id:favorite.favoritable_id)  %>
-          <%= cl_image_tag @restaurant.photos[0].key, crop: :fill, class: "card-img-top rounded-4" %>
-          <div class="card-body">
-            <div class="restaurant name">
-              <%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill"  %>
-            </div>
-            <div class ="icon text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
-              <%@review = Review.new  %>
-              <%@review.restaurant = @restaurant %>
-              <!--add review button-->
-              <i class="fa-solid fa-pen-to-square"
-                type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-                style="color:black;">
-              </i>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <%= render "review_form", restaurant: @restaurant, review: @review %>
+      <div>
+        <% @favorites.each do |favorite| %>
+          <div class="card mt-3 border-0 rounded-5" style="width: 23rem;">
+            <%@restaurant = Restaurant.find_by(id:favorite.favoritable_id)  %>
+            <%= cl_image_tag @restaurant.photos[0].key, crop: :fill, class: "card-img-top rounded-4" %>
+            <div class="card-body">
+              <div class="restaurant name">
+                <%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill"  %>
+              </div>
+              <div class ="icon text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill" data-controller = "icon">
+                <%@review = Review.new  %>
+                <%@review.restaurant = @restaurant %>
+                <!--add review button-->
+                <div class="d-inline">
+                  <i class="fa-solid fa-pen-to-square"
+                    type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                    style="color:black;"
+                    data-action="click->icon#write">
+                  </i>
+                  <div class="collapse"
+                      id="collapseExample">
+                    <div class="card card-body"
+                        data-icon-target="read">
+                      <%= render "review_form", restaurant: @restaurant, review: @review %>
+                    </div>
+                  </div>
+                </div>
+                <!--add review button end-->
+                <!--readreview button start-->
+                <div class="d-inline">
+                  <%@reviews = @restaurant.reviews %>
+                  <i class="fa-solid fa-users-viewfinder"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                    style ="color:black;"
+                    data-action="click->icon#read">
+                  </i>
+                  <div class="collapse"
+                      id="collapseExample"
+                      data-icon-target="write">
+                    <div class="card card-body">
+                      <%= render "review_list", reviews: @reviews, review: @review %>
+                    </div>
+                  </div>
+                </div>
+                  <!--read review button end-->
+                  <!--delete button -->
+                <div class="d-inline">
+                  <%= link_to (render "remove"),favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                  <!--navigate button -->
+                </div>
+                <div class="d-inline">
+                  <%= link_to (render "navigate"), restaurants_path %>
                 </div>
               </div>
-              <!--add review button end-->
-              <!--readreview button start-->
-              <%@reviews = @restaurant.reviews %>
-              <i class="fa-solid fa-users-viewfinder"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseExample"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-                style ="color:black;">
-              </i>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <%= render "review_list", reviews: @reviews, review: @review %>
-                </div>
-              </div>
-                <!--read review button end-->
-                <!--delete button -->
-              <%= link_to (render "remove"),favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-                <!--navigate button -->
-              <%= link_to (render "navigate"), restaurants_path %>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+<script>
+</script>
