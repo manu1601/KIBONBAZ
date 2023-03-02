@@ -6,70 +6,76 @@
           <h1 class="text-center fw-bolder"> Your favorites!</h1>
         </div>
         <div class = "shadow-lg p-3 mb-3 mt-3 bg-info rounded-pill" >
-          <form class="d-flex ">
+          <%= form_with url: favorites_path, method: :get, class: "d-flex, " do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control, w-50",
+            placeholder: "Search for a Restaurant"
+          %>
+          <%= submit_tag "Search", class: "btn btn-info rounded-pill ms-3" %>
+        <% end %>
+      </div>
+          <%# <form class="d-flex ">
             <input class="form-control ms-2 me-2 border-0 rounded-pill" type="search" placeholder="Search" aria-label="Search">
             <button class="btn  rounded-pill me-2" type="submit"><i class="fa-solid fa-magnifying-glass p-0 text-black "></i></button>
-          </form>
+          </form> %>
         </div>
       <div>
         <% @favorites.each do |favorite| %>
           <div class="card mt-3 border-0 rounded-5" style="width: 23rem;">
             <%@restaurant = Restaurant.find_by(id:favorite.favoritable_id)  %>
-            <%= cl_image_tag @restaurant.photos[0].key, crop: :fill, class: "card-img-top rounded-4" %>
+            <%= cl_image_tag @restaurant.photos[0].key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded-4" %>
             <div class="card-body">
-              <div class="restaurant name">
+              <div>
                 <%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill"  %>
               </div>
-              <div class ="icon text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill" data-controller = "icon">
+              <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
                 <%@review = Review.new  %>
                 <%@review.restaurant = @restaurant %>
-                <!--add review button-->
                 <div class="d-inline">
                   <i class="fa-solid fa-pen-to-square"
                     type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseExample"
+                    data-bs-target="#collapseExample-<%=@restaurant.id%>"
                     aria-expanded="false"
                     aria-controls="collapseExample"
-                    style="color:black;"
-                    data-action="click->icon#write">
+                    style="color:black;">
                   </i>
                   <div class="collapse"
-                      id="collapseExample">
-                    <div class="card card-body"
+                      id="collapseExample-<%=@restaurant.id%>">
+                    <div class="card card-body "
                         data-icon-target="read">
                       <%= render "review_form", restaurant: @restaurant, review: @review %>
                     </div>
                   </div>
                 </div>
-                <!--add review button end-->
-                <!--readreview button start-->
                 <div class="d-inline">
                   <%@reviews = @restaurant.reviews %>
                   <i class="fa-solid fa-users-viewfinder"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseExample"
+                    data-bs-target="#collapseExample<%=@restaurant.id%>"
                     aria-expanded="false"
                     aria-controls="collapseExample"
                     style ="color:black;"
                     data-action="click->icon#read">
                   </i>
                   <div class="collapse"
-                      id="collapseExample"
+                      id="collapseExample<%=@restaurant.id%>"
                       data-icon-target="write">
                     <div class="card card-body">
                       <%= render "review_list", reviews: @reviews, review: @review %>
                     </div>
                   </div>
                 </div>
-                  <!--read review button end-->
-                  <!--delete button -->
                 <div class="d-inline">
-                  <%= link_to (render "remove"),favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-                  <!--navigate button -->
+                  <%= link_to favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration:none;" do %>
+                    <i class="fa-solid fa-trash" style="color:red;"></i>
+                  <% end %>
                 </div>
                 <div class="d-inline">
-                  <%= link_to (render "navigate"), restaurants_path %>
+                  <%= link_to restaurants_path do %>
+                    <i class="fa-solid fa-compass" style="color:black;"></i>
+                  <% end %>
                 </div>
               </div>
             </div>
