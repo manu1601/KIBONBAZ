@@ -2,16 +2,18 @@
 <%# <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-4"> %>
-      <div class="filterbox ">
-        <%= form_with url: restaurants_path, method: :get, class: "d-flex, " do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control, w-50",
-            placeholder: "Search for a Restaurant"
-          %>
-          <%= submit_tag "Search", class: "btn btn-info rounded-pill ms-3" %>
-        <% end %>
+    <div class="filterbox ">
+      <div class = "shadow-lg p-3 mb-3 mt-3 bg-info rounded-pill" >
+          <%= form_with url: restaurants_path, method: :get, class: "d-flex, " do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control ms-2 me-2 border-0 rounded-pill",
+              placeholder: "Search for a Restaurant"
+            %>
+            <button class="btn  rounded-pill me-2" type="submit"><i class="fa-solid fa-magnifying-glass p-0 text-black "></i></button>
+          <% end %>
       </div>
+    </div>
     <%# </div>
   </div>
 </div> %>

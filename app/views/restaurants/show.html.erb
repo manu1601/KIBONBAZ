@@ -11,7 +11,7 @@
           <button class="heart"><i class="fa-solid fa-heart" style="color: white"> </i></i></button>
         <% end %>
       <% else %>
-        <p> sign up to save your favourite restaurants</p>
+        <p> Sign up to save your favourite restaurants</p>
       <% end %>
     </div>
   </div>
@@ -47,7 +47,7 @@
       </button>
     </p>
   </div>
-  <div style="min-height: 120px;">
+  <div style="min-height: 5px;">
     <div class="collapse collapse-vertical" id="collapseWidthExample">
       <div class="card card-body" >
         <% @reviews.each do |review| %>
@@ -59,3 +59,29 @@
     </div>
 
 </div>
+
+<footer class="mobile-bottom-nav">
+	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to root_path do %>
+			  <i class="fa-solid fa-house" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to restaurants_path(@restaurant) do %>
+			  <i class="fa-solid fa-compass" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to restaurant_favorites_path(@restaurant) do %>
+			  <i class="fa-solid fa-heart" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+</footer>
