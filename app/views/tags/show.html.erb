@@ -4,11 +4,19 @@
       <div class= "shadow-lg p-2 mt-3  mb-2 bg-info rounded-pill">
         <h1 class="text-center fw-bolder">#<%= @tag.name_tag %></h1>
       </div>
-      <div class="shadow-lg p-3 mb-3 bg-info rounded-pill">
-        <form class="d-flex">
+      <div class="shadow-lg p-3 mb-3 bg-info rounded-pill d-flex justify-content-center">
+        <%= form_with url: tag_path(@tag), method: :get, class: "d-flex, " do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control, w-70, text-center, border-0",
+            placeholder: "type Restaurant name"
+          %>
+          <%= submit_tag "Search", class: "btn btn-dark rounded-pill ms-3" %>
+        <% end %>
+        <%# <form class="d-flex">
           <input class="form-control me-2 rounded-pill border-0" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-dark rounded-pill" type="submit"><i class="fa-solid fa-magnifying-glass p-0 text-whitw "></i></button>
-        </form>
+        </form> %>
       </div>
     </div>
   </div>
@@ -17,11 +25,8 @@
   <div class="card bg-dark text-white border-0 mb-3 rounded-5">
     <%= cl_image_tag suggestion.restaurant.photos[0].key, height: 300, width: 400, crop: :fill, class:"rounded-5"%>
     <div class="card-img-overlay">
-      <h5 class="card-title"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title='view <%=suggestion.restaurant.name%> page'>
-          <%= link_to (suggestion.restaurant.name), restaurant_path(suggestion.restaurant), class:"btn btn-info rounded-pill fw-bolder" %>
+      <h5 class="card-title">
+        <%= link_to (suggestion.restaurant.name), restaurant_path(suggestion.restaurant), class:"btn btn-info rounded-pill fw-bolder" %>
       </h5>
       <% average = [] %>
       <% suggestion.restaurant.reviews.each do |review| %>
