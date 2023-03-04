@@ -3,8 +3,8 @@
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-4"> %>
     <div class="filterbox ">
-      <div class = "shadow-lg p-3 mb-3 mt-3 bg-info rounded-pill" >
-          <%= form_with url: restaurants_path, method: :get, class: "d-flex, " do %>
+      <div class = "shadow-lg p-3 mb-3 mt-3 bg-info rounded-pill" style="margin: 10px">
+          <%= form_with url: restaurants_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control ms-2 me-2 border-0 rounded-pill",
@@ -57,26 +57,62 @@
   <%end%>
 <%end%>
 
-<div id="map" style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="mapbox">
+  <div id="map" style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <script>
+    mapboxgl.accessToken ="<%= ENV['MAPBOX_API_KEY'] %>";
+  let map2 = new mapboxgl.Map({
+  container: 'map',
+  // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+  style: 'mapbox://styles/mapbox/streets-v12',
+  center: [-79.4512, 43.6568],
+  zoom: 13
+  });
+
+  map2.addControl(
+      new MapboxDirections({
+          accessToken: mapboxgl.accessToken
+      }),
+      'top-left'
+  );
+  </script>
 </div>
 
-<script>
-	mapboxgl.accessToken ="<%= ENV['MAPBOX_API_KEY'] %>";
-let map2 = new mapboxgl.Map({
-container: 'map',
-// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-style: 'mapbox://styles/mapbox/streets-v12',
-center: [-79.4512, 43.6568],
-zoom: 13
-});
+<nav class="mobile-bottom-nav">
+	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to root_path do %>
+			  <i class="fa-solid fa-house" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
 
-map2.addControl(
-    new MapboxDirections({
-        accessToken: mapboxgl.accessToken
-    }),
-    'top-left'
-);
-</script>
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to restaurants_path(@restaurant) do %>
+			  <i class="fa-solid fa-compass" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to favorites_path do %>
+			  <i class="fa-solid fa-heart" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+
+  <div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to tags_path(@restaurant) do %>
+			  <i class="fa-solid fa-hashtag" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+</nav>

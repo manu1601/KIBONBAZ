@@ -21,9 +21,7 @@
     <p><i class="fa-solid fa-location-dot"></i><%= @restaurant.address %></p>
     <p><i class="fa-solid fa-phone"></i><%= @restaurant.contact_number %></p>
   </div>
-  <div class="buttons">
-    <button class="navigate"><%= link_to "Navigate", restaurants_path, data:{turbo: false}%><i class="fa-regular fa-compass"></i></i></button>
-  </div>
+
   <div class="Add_review_container">
     <div class="review_btn">
       <button class="btn_rev btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -52,15 +50,16 @@
       <div class="card card-body" >
         <% @reviews.each do |review| %>
           <p><strong><%= review.user.username %></strong></p>
-          <p>comment: <%= review.comment%></p>
-          <p> rating: <%= r = review.rating %></p>
+          <p><%= review.comment%></p>
+          <p> Rating: <%= r = review.rating %></p>
       <% end %>
       </div>
     </div>
 
 </div>
-
-<footer class="mobile-bottom-nav">
+<br>
+<br>
+<nav class="mobile-bottom-nav">
 	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
 		<div class="mobile-bottom-nav__item-content">
       <%= link_to root_path do %>
@@ -84,4 +83,12 @@
       <% end %>
 		</div>
 	</div>
-</footer>
+
+  <div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to tags_path(@restaurant) do %>
+			  <i class="fa-solid fa-hashtag" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+</nav>

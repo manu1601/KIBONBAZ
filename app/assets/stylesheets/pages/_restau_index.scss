@@ -1,6 +1,14 @@
 .filterbox {
   width: 100%;
-  height: 250px;
+  height: 750px;
   padding-top: 20px;
   background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
+}
+
+.mapbox {
+  position: absolute;
+  width: 90%;
+  margin-left: 20px;
+  margin-top: -650px;
+  border: solid 3px white;
 }
