@@ -6,7 +6,6 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @suggestions = Suggestion.where(tag_id: @tag)
-    # search
     if params[:query].present?
       @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
       @restaurants.each do |restaurant|
@@ -17,5 +16,3 @@ class TagsController < ApplicationController
     end
   end
 end
-
-# @suggestions = @suggestions.where(restaurant_id: @restaurants[0].id)
