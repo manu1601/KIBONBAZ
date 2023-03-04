@@ -109,7 +109,7 @@ puts " Finished creating restaurants"
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
 dholl_puri = URI.open("https://www.krazybutterfly.com/wp-content/uploads/2022/05/Dholl-Puri.jpg")
 fried_noodles = URI.open("https://www.joyousapron.com/wp-content/uploads/2021/03/Tom-Yum-Fried-Noodles.jpg")
-r5 = Restaurant.new(name: "saffron grill", address: "Kendra Shopping Mall, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
+r5 = Restaurant.new(name: "Saffron Grill", address: "Kendra Shopping Mall, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r5.photos.attach(io: file, filename: "2.jpeg", content_type: "image/jpeg")
 r5.photos.attach(io: dholl_puri, filename: "2.jpeg", content_type: "image/jpeg")
 r5.photos.attach(io: fried_noodles, filename: "2.jpeg", content_type: "image/jpeg")
@@ -171,19 +171,19 @@ t2 = Tag.new(name_tag: "Kebab")
 file = URI.open("https://images.pexels.com/photos/13201082/pexels-photo-13201082.jpeg")
 t2.photo.attach(io: file, filename: "t2.jpeg", content_type: "image/jpeg")
 t2.save!
-t3 = Tag.new(name_tag: "fried-noodles")
+t3 = Tag.new(name_tag: "Fried-noodles")
 file = URI.open("https://images.pexels.com/photos/5848498/pexels-photo-5848498.jpeg?auto=compress&cs=tinysrgb&w=800")
 t3.photo.attach(io: file, filename: "t3.jpeg", content_type: "image/jpeg")
 t3.save!
-t4 = Tag.new(name_tag: "ice-cream")
+t4 = Tag.new(name_tag: "Ice-cream")
 file = URI.open("https://www.biggerbolderbaking.com/wp-content/uploads/2020/01/2-Ingredient-Ice-cream-Thumbnail-scaled.jpg")
 t4.photo.attach(io: file, filename: "t4.jpeg", content_type: "image/jpeg")
 t4.save!
-t5 = Tag.new(name_tag: "dholl puri")
+t5 = Tag.new(name_tag: "Dholl Puri")
 file = URI.open("https://lacazemama.com/au/wp-content/uploads/2018/02/Dal-Puri.png")
 t5.photo.attach(io: file, filename: "t5.jpeg", content_type: "image/jpeg")
 t5.save!
-t6 = Tag.new(name_tag: "roti")
+t6 = Tag.new(name_tag: "Roti")
 file = URI.open("https://vacancesmaurice.com/slir/w854/content/images/guide/i-422/roti.jpg")
 t6.photo.attach(io: file, filename: "t6.jpeg", content_type: "image/jpeg")
 t6.save!
@@ -199,10 +199,16 @@ puts " Finished creating 8 tags"
 
 puts 'creating 3 users as not -owner'
 u4 = User.new(email: "alex@lewagon.com", password: "123456", username: "@alex", owner: false)
+file = URI.open("https://ouch-cdn2.icons8.com/uV6MjjT6ozAjHq-9ih72ROub0Bxr3GyKOeNraLch5Yo/rs:fit:256:210/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvOTk1/L2M4ZjkxZDMyLTdj/ZmMtNDZhZS05N2Rj/LTlhMzBlY2FhMzk0/ZS5zdmc.png")
+u4.photo.attach(io: file, filename: "Alex_avatar.png", content_type: "image/png")
 u4.save!
 u5 = User.new(email: "Jessy@lewagon.com", password: "123456", username: "@Jessy", owner: false)
+file = URI.open("https://ouch-cdn2.icons8.com/okVomy0sFdGTkaxFV04slON7VSvyva2Pnii5Ttjy4xg/rs:fit:256:189/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzgw/L2JjNTM2N2EwLTBj/NTYtNDI4ZC1hN2Ji/LTkwMzA2NTNkMzFi/NS5zdmc.png")
+u5.photo.attach(io: file, filename: "Jessy_avatar.png", content_type: "image/png")
 u5.save!
 u6 = User.new(email: "claire@lewagon.com", password: "123456", username: "@claire", owner: false)
+file = URI.open("https://ouch-cdn2.icons8.com/TIFCk3Ze9wDSXiIisTv81_omXKThwEQYBGr7qC8W4xo/rs:fit:256:205/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNzAz/LzFiZGY5MDhlLWUx/ZWEtNGI1OC1hMjcz/LWQzNjg3OTZlNjA5/My5zdmc.png")
+u6.photo.attach(io: file, filename: "Claire_avatar.png", content_type: "image/png")
 u6.save!
 puts " Finished creating 3 users as not owner "
 

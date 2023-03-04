@@ -1,12 +1,16 @@
 <nav class="navbar navbar-dark bg-info rounded mb-0 p-0 ">
   <div class="container-fluid">
     <a class="navbar-brand fw-bolder text-dark" href="/">KIBONBAZ </a>
-    <span class="navbar-toggler border border-dark p-0 rounded-5"d data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" >
-      <i class="fa-sharp fa-regular fa-user text-dark"></i>
+    <span class="navbar-toggler p-0 rounded-5"d data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" >
+      <% if current_user %>
+      <%= cl_image_tag current_user.photo.key, height: 35, width: 45  %>
+      <% else %>
+      <i class="fa-solid fa-user"></i>
+      <% end %>
     </span>
     <div class="offcanvas offcanvas-end bg-light shadow-lg p-3 mb-5 bg-body rounded text-center" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header d-block bg-info">
-        <h5 class="offcanvas-title text-dark fw-bolder shadow-lg p-3 mb-5 bg-dark text-white rounded-pill" id="offcanvasNavbarLabel">KIBONBAZ</h5>
+        <h5 id="offcanvasNavbarLabel1">KIBONBAZ</h5>
         <% if user_signed_in?%>
           <small class="offcanvas-title text-dark fw-bolder shadow-lg p-3 mb-5  bg-dark rounded-pill text-white" id="offcanvasNavbarLabel"> <%=current_user.username %> logged in </small>
         <% end %>

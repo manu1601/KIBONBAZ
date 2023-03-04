@@ -49,7 +49,7 @@
     <div class="collapse collapse-vertical" id="collapseWidthExample">
       <div class="card card-body" >
         <% @reviews.each do |review| %>
-          <p><strong><%= review.user.username %></strong></p>
+          <p><%= cl_image_tag review.user.photo.key, height: 40, width: 50  %><strong> &nbsp; <%= review.user.username %></strong></p>
           <p><%= review.comment%></p>
           <p> Rating: <%= r = review.rating %></p>
       <% end %>
