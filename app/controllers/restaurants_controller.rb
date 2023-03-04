@@ -1,16 +1,14 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    if params[:query].present?
-      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @restaurants = Restaurant.all
-    end
+    @restaurants = search
+
     @markers = @restaurants.geocoded.map do |restaurant|
+      @rating = restaurant_ratings(restaurant)
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude,
-        info_window_html: render_to_string(partial: "popup", locals: { restaurant: restaurant}),
+        info_window_html: render_to_string(partial: "popup", locals: { restaurant: restaurant, rating: @rating }),
         marker_html: render_to_string(partial: "marker")
       }
     end
@@ -60,5 +58,23 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :contact_number, photos: [])
+  end
+
+  def restaurant_ratings(restaurant)
+    @reviews = Review.all
+    @sum = 0
+    @restaurant_reviews = @reviews.where(restaurant_id: restaurant.id)
+    @restaurant_reviews.each do |review|
+      @sum += review.rating
+    end
+    @rating = @sum.fdiv(@restaurant_reviews.length)
+  end
+
+  def search
+    if params[:query].present?
+      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
   end
 end

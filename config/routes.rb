@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
   resources :restaurants do
     get "favorites", to: "restaurants#add_favorite"
     resources :reviews, except: [:index]
   end
-  get "/favorites", to: "favorites#index"
+  get "/favorites", to: "favorites#index", as: :favorites
   delete "/favorites/:id", to: "favorites#destroy", as: :favorite
   resources :tags, only: [:index, :show]
 end

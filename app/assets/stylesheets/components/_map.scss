@@ -1,8 +1,18 @@
 .mapboxgl-popup {
   max-width: 200px;
+  h1 {
+    font-family: 'Tilt Warp', cursive;
+  }
 }
 
+.rating_p {
+  font-size: 20px;
+  font-family: 'Tilt Warp', cursive;
+}
+
+
 .mapboxgl-popup-content {
-  text-align: justify;
   font-family: 'Poppins', sans-serif;
+  padding-left: 5px;
+  border-radius: 15px;
 }
