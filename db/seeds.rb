@@ -165,6 +165,8 @@ s4 = Suggestion.new(tag_id: t2.id, restaurant_id: r2.id)
 s4.save!
 s5 = Suggestion.new(tag_id: t4.id, restaurant_id: r4.id)
 s5.save!
+s6 = Suggestion.new(tag_id: t2.id, restaurant_id: r5.id)
+s6.save!
 puts " finished creating suggestions"
 
 puts "creating reviews by users not owner"
