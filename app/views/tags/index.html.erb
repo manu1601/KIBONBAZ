@@ -4,7 +4,10 @@
       <% @tags.each do |tag| %>
         <div class="card bg-dark text-white mb-1 border-0 shadow p-3 mt-4 mb-4 bg-body rounded">
            <%= cl_image_tag tag.photo.key, crop: :fill %>
-          <div class="card-img-overlay">
+          <div class="card-img-overlay"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title='list all restaurants that serve <%=tag.name_tag%>'>
             <%= link_to tag.name_tag, tag_path(tag), class: "btn btn-info" %>
           </div>
         </div>

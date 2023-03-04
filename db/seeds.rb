@@ -12,6 +12,7 @@ Suggestion.destroy_all
 Restaurant.destroy_all
 Tag.destroy_all
 User.destroy_all
+
 puts "destroyed review, favourite, workinghour, suggestion,restaurant,tag & user"
 puts 'populating database...'
 puts 'creating 3 users as owner'
@@ -24,9 +25,21 @@ u3.save!
 puts " Finished creating 3 users as owner "
 
 puts "creating restaurants"
-file = URI.open("https://images.pexels.com/photos/5305432/pexels-photo-5305432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 r1 = Restaurant.new(name: "Bol 5", address: "JKalachand, A7, L'Agrément, Saint Pierre, Moka, Mauritius", contact_number: "59702430", user_id: u1.id)
-r1.photos.attach(io: file, filename: "r1.jpeg", content_type: "image/jpeg")
+venue1 = URI.open("https://images.pexels.com/photos/5305432/pexels-photo-5305432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+venue2 = URI.open("https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+briyani = URI.open("https://media.istockphoto.com/id/1303098890/photo/briyani-rice-with-chicken-and-some-veggie.jpg?s=1024x1024&w=is&k=20&c=CmcItA_EPvYcl_8pDSRvSkkJiing7wz8gW51IiO1rQQ=")
+noodles = URI.open("https://media.istockphoto.com/id/1403179775/photo/chinese-style-fried-noodles.jpg?s=1024x1024&w=is&k=20&c=aO0GmYDtN3OC-1aLlkif-AHjFiIyX_8ZBARd1SCeHro=")
+bbq = URI.open("https://images.pexels.com/photos/2233729/pexels-photo-2233729.jpeg")
+ice_cream = URI.open("https://images.pexels.com/photos/3631/summer-dessert-sweet-ice-cream.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+dholl_puri = URI.open("https://i.ytimg.com/vi/Ml6m0rhsvxA/maxresdefault.jpg")
+r1.photos.attach(io: venue1, filename: "1.jpeg", content_type: "image/jpeg")
+r1.photos.attach(io: venue2, filename: "2.jpeg", content_type: "image/jpeg")
+r1.photos.attach(io: briyani, filename: "3.jpeg", content_type: "image/jpeg")
+r1.photos.attach(io: noodles, filename: "4.jpeg", content_type: "image/jpeg")
+r1.photos.attach(io: bbq, filename: "5.jpeg", content_type: "image/jpeg")
+r1.photos.attach(io: ice_cream, filename: "6.jpeg", content_type: "image/jpeg")
+r1.photos.attach(io: dholl_puri, filename: "7.jpeg", content_type: "image/jpeg")
 r1.save!
 puts " Finished creating first restaurant"
 w1 = WorkingHour.new(day: "Tuesday to Saturday", opening_hours: "12:00", closing_hours: "23:30", restaurant_id: r1.id)
@@ -36,9 +49,18 @@ w2 = WorkingHour.new(day: "Sunday", opening_hours: "16:00", closing_hours: "23:3
 w2.save!
 puts " Finished creating first restaurant working hours w2"
 
-file = URI.open("https://images.pexels.com/photos/2664216/pexels-photo-2664216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+
+venue1 = URI.open("https://images.pexels.com/photos/2664216/pexels-photo-2664216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+venue2 = URI.open("https://images.pexels.com/photos/1581554/pexels-photo-1581554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+dhol_puri = URI.open("https://restaurants.mu/blog-admin/wp-content/uploads/2018/05/1-3.jpg")
+roti = URI.open("https://veganlovlie.com/wp-content/uploads/mauritian_roti_fillings_part3_curry-on-roti.jpg")
+ice_cream = URI.open("https://img.taste.com.au/DcBJMzGZ/taste/2017/05/fruit-sorbet-126288-1.jpg")
 r2 = Restaurant.new(name: "La Bonne Fourchette", address: "Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "57752952", user_id: u2.id)
-r2.photos.attach(io: file, filename: "r2.jpeg", content_type: "image/jpeg")
+r2.photos.attach(io: venue1, filename: "1.jpeg", content_type: "image/jpeg")
+r2.photos.attach(io: dhol_puri, filename: "2.jpeg", content_type: "image/jpeg")
+r2.photos.attach(io: venue2, filename: "3.jpeg", content_type: "image/jpeg")
+r2.photos.attach(io: roti, filename: "4.jpeg", content_type: "image/jpeg")
+r2.photos.attach(io: ice_cream, filename: "5.jpeg", content_type: "image/jpeg")
 r2.save!
 puts " Finished creating 2nd restaurant"
 w3 = WorkingHour.new(day: "Tuesday to Saturday", opening_hours: "11:00", closing_hours: "20:00", restaurant_id: r2.id)
@@ -48,9 +70,21 @@ w4 = WorkingHour.new(day: "Sunday", opening_hours: "12:00", closing_hours: "20:0
 w4.save!
 puts " Finished creating 2nd restaurant working hours w4"
 
-file = URI.open("https://images.pexels.com/photos/186861/pexels-photo-186861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+venue1 = URI.open("https://images.pexels.com/photos/186861/pexels-photo-186861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+venue2 = URI.open("https://images.pexels.com/photos/903376/pexels-photo-903376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+burger = URI.open("https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+kebab = URI.open("https://www.ebox.mu/assets/recipes/l/E85CUZeErCsDBlkPyJLeMeXRG8ldoAn6GG6rrGrD.jpg")
+briyani = URI.open("https://static.wixstatic.com/media/f3a033_294b3eff800a4fbc949b3ba93de2391c~mv2.jpg/v1/fill/w_560,h_368,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Briyani.jpg")
+roti = URI.open("https://theculturetrip.com/wp-content/uploads/2017/04/fb_img_1491282702113.jpg")
+dholl_puri = URI.open("https://mauritian-cuisine.com/wp-content/uploads/2022/08/119124097_1463708333814649_5846707474917198766_n.jpg")
 r3 = Restaurant.new(name: "Golden Panda", address: "Helvétia, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "59891273", user_id: u3.id)
-r3.photos.attach(io: file, filename: "r3.jpeg", content_type: "image/jpeg")
+r3.photos.attach(io: venue1, filename: "1.jpeg", content_type: "image/jpeg")
+r3.photos.attach(io: venue2, filename: "2.jpeg", content_type: "image/jpeg")
+r3.photos.attach(io: burger, filename: "3.jpeg", content_type: "image/jpeg")
+r3.photos.attach(io: kebab, filename: "4.jpeg", content_type: "image/jpeg")
+r3.photos.attach(io: briyani, filename: "5.jpeg", content_type: "image/jpeg")
+r3.photos.attach(io: roti, filename: "6.jpeg", content_type: "image/jpeg")
+r3.photos.attach(io: dholl_puri, filename: "7.jpeg", content_type: "image/jpeg")
 r3.save!
 puts " Finished creating 3rd restaurant"
 w5 = WorkingHour.new(day: "`Monday to Sunday", opening_hours: "9:00", closing_hours: "5:30", restaurant_id: r3.id)
@@ -58,8 +92,12 @@ w5.save!
 puts " Finished creating 3rd restaurant working hours w5"
 
 file = URI.open("https://images.pexels.com/photos/7364040/pexels-photo-7364040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+dholl_puri = URI.open("https://images.pexels.com/photos/7364040/pexels-photo-7364040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+fried_noodles = URI.open("https://www.honestfoodtalks.com/wp-content/uploads/2022/12/Chungs-Teriyaki-stir-fry-Hong-Kong-noodles-with-chopsticks-on-the-side.jpg")
 r4 = Restaurant.new(name: "Mine Mangouste", address: "L'Agrément, Saint Pierre, Moka, Mauritius", contact_number: "4334325", user_id: u1.id)
 r4.photos.attach(io: file, filename: "r4.jpeg", content_type: "image/jpeg")
+r4.photos.attach(io: dholl_puri, filename: "r4.jpeg", content_type: "image/jpeg")
+r4.photos.attach(io: fried_noodles, filename: "r4.jpeg", content_type: "image/jpeg")
 r4.save!
 puts " Finished creating 4th restaurant"
 w6 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r4.id)
@@ -69,8 +107,12 @@ puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
+dholl_puri = URI.open("https://www.krazybutterfly.com/wp-content/uploads/2022/05/Dholl-Puri.jpg")
+fried_noodles = URI.open("https://www.joyousapron.com/wp-content/uploads/2021/03/Tom-Yum-Fried-Noodles.jpg")
 r5 = Restaurant.new(name: "saffron grill", address: "Kendra Shopping Mall, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
-r5.photos.attach(io: file, filename: "r5.jpeg", content_type: "image/jpeg")
+r5.photos.attach(io: file, filename: "2.jpeg", content_type: "image/jpeg")
+r5.photos.attach(io: dholl_puri, filename: "2.jpeg", content_type: "image/jpeg")
+r5.photos.attach(io: fried_noodles, filename: "2.jpeg", content_type: "image/jpeg")
 r5.save!
 puts " Finished creating 4th restaurant"
 w7 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "09:00", closing_hours: "22:00", restaurant_id: r5.id)
@@ -81,7 +123,7 @@ puts " Finished creating restaurants"
 # seeding more restaurants for demo
 file = URI.open("https://images.pexels.com/photos/7353393/pexels-photo-7353393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 r6 = Restaurant.new(name: "star deg", address: "B49, Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81402, Mauritius", contact_number: "4334325", user_id: u1.id)
-r6.photos.attach(io: file, filename: "r6.jpeg", content_type: "image/jpeg")
+r6.photos.attach(io: file, filename: "1.jpeg", content_type: "image/jpeg")
 r6.save!
 puts " Finished creating 4th restaurant"
 w8 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r6.id)
@@ -91,8 +133,12 @@ puts " Finished creating restaurants"
 
 # seeding more restaurants for demo
 file = URI.open("https://images.pexels.com/photos/104884/pexels-photo-104884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+dholl_puri = URI.open("https://images.pexels.com/photos/104884/pexels-photo-104884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+fried_noodles = URI.open("http://cdn.shopify.com/s/files/1/0595/3850/5936/articles/20221130023757-untitled-design-12-3.png?v=1669776008")
 r7 = Restaurant.new(name: "B&G", address: "L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
-r7.photos.attach(io: file, filename: "r7.jpeg", content_type: "image/jpeg")
+r7.photos.attach(io: file, filename: "1.jpeg", content_type: "image/jpeg")
+r7.photos.attach(io: dholl_puri, filename: "2.jpeg", content_type: "image/jpeg")
+r7.photos.attach(io: fried_noodles, filename: "3.jpeg", content_type: "image/jpeg")
 r7.save!
 puts " Finished creating 4th restaurant"
 w9 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r7.id)
@@ -101,8 +147,14 @@ puts " Finished creating 4th restaurant working hours w6"
 puts " Finished creating restaurants"
 
 file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1200")
+roti = URI.open("https://restaurants.mu/blog-admin/wp-content/uploads/2018/05/3-1.jpg")
+dholl_puri = URI.open("https://www.linfo.re/IMG/jpg/276152171_761170001463985_1451450490062626206_n.jpg")
+briyani = URI.open("https://www.asiaone.com/sites/default/files/original_images/Mar2020/20200311-briyani-pex.jpg")
 r8 = Restaurant.new(name: "GLORIA", address: "Pharmachic, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
-r8.photos.attach(io: file, filename: "r8.jpeg", content_type: "image/jpeg")
+r8.photos.attach(io: file, filename: "1.jpeg", content_type: "image/jpeg")
+r8.photos.attach(io: roti, filename: "2.jpeg", content_type: "image/jpeg")
+r8.photos.attach(io: dholl_puri, filename: "3.jpeg", content_type: "image/jpeg")
+r8.photos.attach(io: briyani, filename: "4.jpeg", content_type: "image/jpeg")
 r8.save!
 puts " Finished creating 4th restaurant"
 w10 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r8.id)
@@ -165,7 +217,8 @@ s4 = Suggestion.new(tag_id: t2.id, restaurant_id: r2.id)
 s4.save!
 s5 = Suggestion.new(tag_id: t4.id, restaurant_id: r4.id)
 s5.save!
-s6 = Suggestion.new(tag_id: t2.id, restaurant_id: r5.id)
+# tag_id 8 bbq
+s6 = Suggestion.new(tag_id: t8.id, restaurant_id: r1.id)
 s6.save!
 puts " finished creating suggestions"
 
@@ -178,3 +231,12 @@ re3 = Review.new(comment: "Zafer la Tamam!", rating: 5, restaurant_id: r4.id, us
 re3.save!
 
 puts "Finished populating database!"
+# def add_photos(links, r)
+#   counter = 1
+
+#   links.each_with_index do |link, index|
+#     file = URI.open(link)
+#     counter.photos.attach(io: file, filename: "restaurant#{index}", content_type: "image/jpeg")
+#   end
+#   counter++
+# end
