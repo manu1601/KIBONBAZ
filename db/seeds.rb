@@ -199,7 +199,7 @@ puts " Finished creating 8 tags"
 
 puts 'creating 3 users as not -owner'
 u4 = User.new(email: "alex@lewagon.com", password: "123456", username: "@alex", owner: false)
-file = URI.open("https://ouch-cdn2.icons8.com/uV6MjjT6ozAjHq-9ih72ROub0Bxr3GyKOeNraLch5Yo/rs:fit:256:210/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvOTk1/L2M4ZjkxZDMyLTdj/ZmMtNDZhZS05N2Rj/LTlhMzBlY2FhMzk0/ZS5zdmc.png")
+file = URI.open("https://ouch-cdn2.icons8.com/tvVGnE_R3jl6naeLkbYsSUCgykpUxIsAx-4yBPrtJxM/rs:fit:256:216/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzYy/LzFlMWVlNTI1LWQx/ZjctNGJkNi1iYmQz/LWRhYWUxMTVmODI0/Ni5zdmc.png")
 u4.photo.attach(io: file, filename: "Alex_avatar.png", content_type: "image/png")
 u4.save!
 u5 = User.new(email: "Jessy@lewagon.com", password: "123456", username: "@Jessy", owner: false)
