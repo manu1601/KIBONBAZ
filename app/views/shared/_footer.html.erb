@@ -1,0 +1,33 @@
+<nav class="mobile-bottom-nav rounded-pill">
+	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to root_path do %>
+			  <i class="fa-solid fa-house" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to restaurants_path(@restaurant) do %>
+			  <i class="fa-solid fa-compass" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to favorites_path do %>
+			  <i class="fa-solid fa-heart" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+
+  <div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+      <%= link_to tags_path(@restaurant) do %>
+			  <i class="fa-solid fa-hashtag" style="color:#E9BE78"></i>
+      <% end %>
+		</div>
+	</div>
+</nav>

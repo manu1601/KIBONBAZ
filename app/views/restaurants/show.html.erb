@@ -1,113 +1,72 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-4">
-      <%= render "restaurants/carousel" %>
-    </div>
-  </div>
-</div>
-
-
-
-
-      <% if user_signed_in? && current_user.favorited?(@restaurant) %>
-        <div class="position-absolute top-0 end-0">
-          <i class="fa-solid fa-star fs-1 "style="color:orange"></i>
+      <%= render "restaurants/carousel", restaurant: @restaurant %>
+      <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
+        <div class="d-inline">
+          <i class="fa-solid fa-pen-to-square"
+            type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseExample-<%=@restaurant.id%>"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            style="color:black;">
+          </i>
+          <div class="collapse"
+            id="collapseExample-<%=@restaurant.id%>">
+            <div class="card card-body "
+              data-icon-target="read">
+              <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
+            </div>
+          </div>
         </div>
-      <% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
-        <div class="position-absolute top-0 end-0">
-          <%= link_to restaurant_favorites_path(@restaurant) do %>
-            <i class="fa-solid fa-star fs-1 " style="color:yellow"> </i>
+
+        <div class="d-inline">
+          <%@reviews = @restaurant.reviews %>
+          <i class="fa-solid fa-users-viewfinder"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample<%=@restaurant.id%>"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            style ="color:black;"
+            data-action="click->icon#read">
+          </i>
+          <div class="collapse "
+            id="collapseExample<%=@restaurant.id%>"
+            data-icon-target="write">
+            <div class="card card-body">
+              <%= render "favorites/review_list", reviews: @reviews, review: @review%>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-inline">
+          <%= link_to restaurants_path do %>
+            <i class="fa-solid fa-compass" style="color:black;"></i>
           <% end %>
         </div>
-      <% else %>
-        <div class="alert alert-info position-absolute top-0 start-0 " role="alert">
-          <p> Sign up to save your favourite restaurants</p>
+
+        <div class="d-inline">
+          <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+              <%= link_to restaurant_favorites_path(@restaurant) do%>
+                <i class="fa-solid fa-star fs-2 " style="color:black"> </i>
+              <% end %>
+          <% end %>
         </div>
-      <% end %>
-
-<!--restaurant info-->
-  <div class="restau_info">
-    <h1><strong><%= @restaurant.name %></strong></h1>
-    <p><i class="fa-solid fa-location-dot"></i><%= @restaurant.address %></p>
-    <p><i class="fa-solid fa-phone"></i><%= @restaurant.contact_number %></p>
-  </div>
-
-<!--s code-->
-<div class="d-inline">
-  <i class="fa-solid fa-pen-to-square"
-    type="button" data-bs-toggle="collapse"
-    data-bs-target="#collapseExample-<%=@restaurant.id%>"
-    aria-expanded="false"
-    aria-controls="collapseExample"
-    style="color:black;">
-  </i>
-  <div class="collapse"
-      id="collapseExample-<%=@restaurant.id%>">
-    <div class="card card-body "
-         data-icon-target="read">
-        <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
+      </div>
+      <div class="card mt-4 border-0 rounded-5 bg-white">
+        <div class="card-body fw-bold">
+          <div class="bg-info rounded-pill">
+            <h1 class="text-center text-dark"><strong><%= @restaurant.name %></strong></h1>
+          </div>
+          <div class="bg-info rounded-pill text-center mt-3">
+            <p class="text-dark"><i class="fa-solid fa-location-dot text-dark" style="color:black;"></i><%= @restaurant.address %></p>
+          </div>
+          <div class="bg-info rounded-pill text-center">
+            <p class="text-dark"><i class="fa-solid fa-phone text-dark"style="color:black;"></i><%= @restaurant.contact_number %></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="d-inline">
-  <%@reviews = @restaurant.reviews %>
-  <i class="fa-solid fa-users-viewfinder"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#collapseExample<%=@restaurant.id%>"
-    aria-expanded="false"
-    aria-controls="collapseExample"
-    style ="color:black;"
-    data-action="click->icon#read">
-  </i>
-  <div class="collapse "
-    id="collapseExample<%=@restaurant.id%>"
-    data-icon-target="write">
-    <div class="card card-body">
-      <%= render "favorites/review_list", reviews: @reviews, review: @review%>
-    </div>
-  </div>
-</div>
-
-<div class="d-inline">
-  <%= link_to restaurants_path do %>
-    <i class="fa-solid fa-compass" style="color:black;"></i>
-  <% end %>
-</div>
-
-
-<!--footer-->
-<nav class="mobile-bottom-nav">
-	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to root_path do %>
-			  <i class="fa-solid fa-house" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to restaurants_path(@restaurant) do %>
-			  <i class="fa-solid fa-compass" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to restaurant_favorites_path(@restaurant) do %>
-			  <i class="fa-solid fa-heart" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-  <div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to tags_path(@restaurant) do %>
-			  <i class="fa-solid fa-hashtag" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-</nav>

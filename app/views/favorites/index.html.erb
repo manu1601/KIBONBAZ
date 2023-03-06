@@ -16,7 +16,7 @@
         </div>
       <div>
         <% @favorites.each do |favorite| %>
-          <div class="card mt-3 border-0 rounded-5" style="width: 23rem;">
+          <div class="card mt-3 border-0 rounded-5 " style="width: 23rem;">
             <%@restaurant = Restaurant.find_by(id:favorite.favoritable_id)  %>
             <%= cl_image_tag @restaurant.photos[0].key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded-4" %>
             <div class="card-body">
@@ -79,39 +79,3 @@
     </div>
   </div>
 </div>
-<br>
-<br>
-<br>
-<nav class="mobile-bottom-nav">
-	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to root_path do %>
-			  <i class="fa-solid fa-house" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to restaurants_path(@restaurant) do %>
-			  <i class="fa-solid fa-compass" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to favorites_path do %>
-			  <i class="fa-solid fa-heart" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-  <div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to tags_path(@restaurant) do %>
-			  <i class="fa-solid fa-hashtag" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-</nav>
