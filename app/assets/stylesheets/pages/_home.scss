@@ -13,6 +13,7 @@
     font-size: 50px;
     margin-top: 10px;
     font-family: 'Alfa Slab One', cursive;
+    letter-spacing: 2px;
   }
 }
 
@@ -23,6 +24,7 @@
     font-size: 50px;
     margin-top: 10px;
     font-family: 'Alfa Slab One', cursive;
+    letter-spacing: 2px;
   }
 }
 
@@ -136,6 +138,7 @@
   margin-top: -320px;
   margin-left: 10px;
   object-fit: fill;
+  clip-path: polygon(0% 0%,100% 0%, 100% 100%, 0% 100%);
 }
 
 .rasta {
