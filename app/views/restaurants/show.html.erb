@@ -54,7 +54,7 @@
           <% end %>
         </div>
       </div>
-      <div class="card mt-4 border-0 rounded-5 bg-white">
+      <div class="card mt-2 border-0 rounded-5 bg-white">
         <div class="card-body fw-bold">
           <div class="bg-info rounded-pill">
             <h1 class="text-center text-dark"><strong><%= @restaurant.name %></strong></h1>
@@ -64,7 +64,7 @@
               <% action = @rating.round%>
                 <% case action  %>
                   <% when 1  %>
-                    <p>⭐️</p>
+                    <p>Rating :⭐️</p>
                   <% when 2  %>
                     <p> Rating : ⭐️⭐️</p>
                   <% when 3  %>
@@ -76,7 +76,6 @@
                 <% end %>
             </div>
           <% end %>
-          <!--adding review-->
           <div class="bg-info rounded-pill text-center mt-3">
             <p class="text-dark"><i class="fa-solid fa-location-dot text-dark" style="color:black;"></i><%= @restaurant.address %></p>
           </div>
