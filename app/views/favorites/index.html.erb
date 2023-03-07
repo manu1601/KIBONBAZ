@@ -14,7 +14,7 @@
           <%= submit_tag "Search", class: "btn btn-dark rounded-pill ms-3" %>
           <% end %>
         </div>
-      <div>
+      <div class="favorite-card">
         <% @favorites.each do |favorite| %>
           <div class="card mt-3 border-0 rounded-5 " style="width: 23rem;">
             <%@restaurant = Restaurant.find_by(id:favorite.favoritable_id)  %>
