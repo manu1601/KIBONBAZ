@@ -41,12 +41,6 @@
         </div>
 
         <div class="d-inline">
-          <%= link_to restaurants_path do %>
-            <i class="fa-solid fa-compass" style="color:black;"></i>
-          <% end %>
-        </div>
-
-        <div class="d-inline">
           <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
               <%= link_to restaurant_favorites_path(@restaurant) do%>
                 <i class="fa-solid fa-star fs-2 " style="color:black"> </i>
@@ -56,29 +50,16 @@
       </div>
 
     </div>
-  <div class="btn_rev2_div">
-    <p>
-      <button class="btn_rev2 btn-btn primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-        Reviews <i class="fa-regular fa-star" style="color:#E1AF63"></i>
-      </button>
-    </p>
-  </div>
-  <div style="min-height: 5px;">
-    <div class="collapse collapse-vertical" id="collapseWidthExample">
-      <div class="card card-body" >
-        <% @reviews.each do |review| %>
-          <p><%= cl_image_tag review.user.photo.key, height: 40, width: 50  %><strong> &nbsp; <%= review.user.username %></strong></p>
-          <p><%= review.comment%></p>
-          <p> Rating: <%= r = review.rating %></p>
-      <% end %>
+
+
 
       <div class="card mt-2 border-0 rounded-5 bg-white">
         <div class="card-body fw-bold">
           <div class="bg-info rounded-pill">
-            <h1 class="text-center text-dark"><strong><%= @restaurant.name %></strong></h1>
+            <h1 class="text-center text-dark p-2"><strong><%= @restaurant.name %></strong></h1>
           </div>
           <% if @rating%>
-            <div class="bg-info rounded-pill text-center mt-3">
+            <div class="bg-info rounded-pill text-center mt-3 p-1">
               <% action = @rating.round%>
                 <% case action  %>
                   <% when 1  %>
@@ -95,14 +76,17 @@
             </div>
           <% end %>
           <div class="bg-info rounded-pill text-center mt-3">
-            <p class="text-dark"><i class="fa-solid fa-location-dot text-dark" style="color:black;"></i><%= @restaurant.address %></p>
+            <p class="text-dark p-3"><i class="fa-solid fa-location-dot text-dark" style="color:black;"></i><%= @restaurant.address %></p>
           </div>
           <div class="bg-info rounded-pill text-center">
             <p class="text-dark"><i class="fa-solid fa-phone text-dark"style="color:black;"></i><%= @restaurant.contact_number %></p>
           </div>
         </div>
-
+        <br>
+  <br>
+  <br>
       </div>
     </div>
   </div>
+
 </div>
