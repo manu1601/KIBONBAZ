@@ -18,3 +18,21 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.user_avatar1 {
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  object-fit: fill;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.user_avatar2 {
+  margin-top: -40px;
+  padding: 0;
+  img {
+    border-radius: 50%;
+  }
+}

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   acts_as_favoritor
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :username, presence: true
   has_many :reviews
   has_many :restaurants
+  has_one_attached :photo
 end

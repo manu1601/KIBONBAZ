@@ -5,13 +5,13 @@
           <h1 class="text-center fw-bolder"> Your favorites!</h1>
         </div>
         <div class = "shadow-lg p-3 mb-3 mt-3 bg-info rounded-pill d-flex justify-content-center" >
-          <%= form_with url: favorites_path, method: :get do %>
+          <%= form_with url: favorites_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control, w-70, text-center, border-0",
-            placeholder: "type restaurant name"
+            class: "form-control ms-2 me-2 border-0 rounded-pill",
+            placeholder: "Search for a Restaurant"
           %>
-          <%= submit_tag "Search", class: "btn btn-dark rounded-pill ms-3" %>
+          <button class="btn  rounded-pill me-2" type="submit"><i class="fa-solid fa-magnifying-glass p-0 text-black "></i></button>
           <% end %>
         </div>
       <div>
@@ -64,11 +64,6 @@
                 <div class="d-inline">
                   <%= link_to favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration:none;" do %>
                     <i class="fa-solid fa-trash" style="color:red;"></i>
-                  <% end %>
-                </div>
-                <div class="d-inline">
-                  <%= link_to restaurants_path do %>
-                    <i class="fa-solid fa-compass" style="color:black;"></i>
                   <% end %>
                 </div>
               </div>
