@@ -17,10 +17,9 @@
   </head>
 
   <body>
-    <%#= render "shared/navbar" %>
     <%= render "shared/custom_navbar" %>
-    <%= render "shared/flashes" %>
     <%= yield %>
-
+    <%= render "shared/footer" %>
+    <%= render "shared/flashes" %>
   </body>
 </html>

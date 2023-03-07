@@ -8,11 +8,10 @@
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 title='list all restaurants that serve <%=tag.name_tag%>'>
-            <%= link_to tag.name_tag, tag_path(tag), class: "btn btn-info" %>
+            <%= link_to tag.name_tag, tag_path(tag), class: "btn btn-info rounded-pill mt-2 ms-1" %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
