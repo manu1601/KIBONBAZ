@@ -17,9 +17,11 @@
     </div>
   </div>
 </div>
+
+<div id="tag-card">
 <% @suggestions.each do |suggestion| %>
   <div class="card bg-dark text-white border-0 mb-3 rounded-5">
-    <%= cl_image_tag suggestion.restaurant.photos[0].key, height: 300, width: 400, crop: :fill, class:"rounded-5"%>
+    <%= cl_image_tag suggestion.restaurant.photos[0].key, crop: :fill, class:"rounded-5 tag-image"%>
     <div class="card-img-overlay">
       <h5 class="card-title">
         <%= link_to (suggestion.restaurant.name), restaurant_path(suggestion.restaurant), class:"btn btn-info rounded-pill fw-bolder" %>
@@ -41,3 +43,4 @@
     </div>
   </div>
 <% end %>
+</div>
