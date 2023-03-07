@@ -1,42 +1,60 @@
-<div class="show_cont">
-  <div class="restau_image">
-    <% @restaurant.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-    <div class="fav">
-      <% if user_signed_in? && current_user.favorited?(@restaurant) %>
-      <% elsif user_signed_in? && current_user.favorited?(@restaurant) == false  %>
-        <%# <%= link_to "add to favorite", restaurant_favorites_path(@restaurant), class:"btn btn-primary" %>
-        <%= link_to restaurant_favorites_path(@restaurant) do %>
-          <button class="heart"><i class="fa-solid fa-heart" style="color: white"> </i></i></button>
-        <% end %>
-      <% else %>
-        <p> Sign up to save your favourite restaurants</p>
-      <% end %>
-    </div>
-  </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-4">
+      <%= render "restaurants/carousel", restaurant: @restaurant %>
+      <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
+        <div class="d-inline">
+          <i class="fa-solid fa-pen-to-square"
+            type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseExample-<%=@restaurant.id%>"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            style="color:black;">
+          </i>
+          <div class="collapse"
+            id="collapseExample-<%=@restaurant.id%>">
+            <div class="card card-body border-0 "
+              data-icon-target="read">
+              <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
+            </div>
+          </div>
+        </div>
 
-  <div class="restau_info">
-    <h1><strong><%= @restaurant.name %></strong></h1>
-    <p><i class="fa-solid fa-location-dot"></i><%= @restaurant.address %></p>
-    <p><i class="fa-solid fa-phone"></i><%= @restaurant.contact_number %></p>
-  </div>
+        <div class="d-inline">
+          <%@reviews = @restaurant.reviews %>
+          <i class="fa-solid fa-users-viewfinder"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample<%=@restaurant.id%>"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            style ="color:black;"
+            data-action="click->icon#read">
+          </i>
+          <div class="collapse "
+            id="collapseExample<%=@restaurant.id%>"
+            data-icon-target="write">
+            <div class="card card-body border-0">
+              <%= render "favorites/review_list", reviews: @reviews, review: @review%>
+            </div>
+          </div>
+        </div>
 
-  <div class="Add_review_container">
-    <div class="review_btn">
-      <button class="btn_rev btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      <p>Add a Review<i class="fa-regular fa-pen-to-square" style="color:white"></i></p>
-      </button>
-    </div>
+        <div class="d-inline">
+          <%= link_to restaurants_path do %>
+            <i class="fa-solid fa-compass" style="color:black;"></i>
+          <% end %>
+        </div>
 
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body border-0 shadow-sm p-3 mb-5 bg-body rounded">
-        <%= simple_form_for [ @restaurant, @review ] do |f| %>
-        <%= f.input :comment %>
-        <%= f.input :rating, collection: (1..5).to_a, label:"Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-        <%= f.submit "Submit review", class: " btn btn-info" %>
-        <% end %>
+        <div class="d-inline">
+          <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+              <%= link_to restaurant_favorites_path(@restaurant) do%>
+                <i class="fa-solid fa-star fs-2 " style="color:black"> </i>
+              <% end %>
+          <% end %>
+        </div>
       </div>
+
     </div>
   <div class="btn_rev2_div">
     <p>
@@ -53,42 +71,38 @@
           <p><%= review.comment%></p>
           <p> Rating: <%= r = review.rating %></p>
       <% end %>
+
+      <div class="card mt-2 border-0 rounded-5 bg-white">
+        <div class="card-body fw-bold">
+          <div class="bg-info rounded-pill">
+            <h1 class="text-center text-dark"><strong><%= @restaurant.name %></strong></h1>
+          </div>
+          <% if @rating%>
+            <div class="bg-info rounded-pill text-center mt-3">
+              <% action = @rating.round%>
+                <% case action  %>
+                  <% when 1  %>
+                    <p>Rating :⭐️</p>
+                  <% when 2  %>
+                    <p> Rating : ⭐️⭐️</p>
+                  <% when 3  %>
+                    <p>Rating: ⭐️⭐️⭐️</p>
+                  <% when 4  %>
+                    <p>Rating: ⭐️⭐️⭐️⭐</p>
+                  <% when 5  %>
+                    <p>Rating: ⭐️⭐️⭐️⭐️⭐️</p>
+                <% end %>
+            </div>
+          <% end %>
+          <div class="bg-info rounded-pill text-center mt-3">
+            <p class="text-dark"><i class="fa-solid fa-location-dot text-dark" style="color:black;"></i><%= @restaurant.address %></p>
+          </div>
+          <div class="bg-info rounded-pill text-center">
+            <p class="text-dark"><i class="fa-solid fa-phone text-dark"style="color:black;"></i><%= @restaurant.contact_number %></p>
+          </div>
+        </div>
+
       </div>
     </div>
-
+  </div>
 </div>
-<br>
-<br>
-<nav class="mobile-bottom-nav">
-	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to root_path do %>
-			  <i class="fa-solid fa-house" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to restaurants_path(@restaurant) do %>
-			  <i class="fa-solid fa-compass" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to restaurant_favorites_path(@restaurant) do %>
-			  <i class="fa-solid fa-heart" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-
-  <div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-      <%= link_to tags_path(@restaurant) do %>
-			  <i class="fa-solid fa-hashtag" style="color:#E9BE78"></i>
-      <% end %>
-		</div>
-	</div>
-</nav>

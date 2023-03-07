@@ -30,6 +30,7 @@ class RestaurantsController < ApplicationController
     @review = Review.new
     @review.restaurant = @restaurant
     @reviews = @restaurant.reviews
+    @rating = restaurant_ratings(@restaurant)
   end
 
   def add_favorite
@@ -64,10 +65,13 @@ class RestaurantsController < ApplicationController
     @reviews = Review.all
     @sum = 0
     @restaurant_reviews = @reviews.where(restaurant_id: restaurant.id)
-    @restaurant_reviews.each do |review|
-      @sum += review.rating
+    if @restaurant_reviews.empty?
+    else
+      @restaurant_reviews.each do |review|
+        @sum += review.rating
+      end
+      @rating = @sum.fdiv(@restaurant_reviews.length)
     end
-    @rating = @sum.fdiv(@restaurant_reviews.length)
   end
 
   def search

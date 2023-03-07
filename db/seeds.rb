@@ -33,6 +33,8 @@ noodles = URI.open("https://media.istockphoto.com/id/1403179775/photo/chinese-st
 bbq = URI.open("https://images.pexels.com/photos/2233729/pexels-photo-2233729.jpeg")
 ice_cream = URI.open("https://images.pexels.com/photos/3631/summer-dessert-sweet-ice-cream.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 dholl_puri = URI.open("https://i.ytimg.com/vi/Ml6m0rhsvxA/maxresdefault.jpg")
+burger = URI.open("https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/102cf51c-9220-4278-8b63-2b9611ad275e/Derivates/3831dbe2-352e-4409-a2e2-fc87d11cab0a.jpg")
+kebab = URI.open("https://i.ytimg.com/vi/Ml6m0rhsvxA/maxresdefault.jpg")
 r1.photos.attach(io: venue1, filename: "1.jpeg", content_type: "image/jpeg")
 r1.photos.attach(io: venue2, filename: "2.jpeg", content_type: "image/jpeg")
 r1.photos.attach(io: briyani, filename: "3.jpeg", content_type: "image/jpeg")
@@ -40,6 +42,7 @@ r1.photos.attach(io: noodles, filename: "4.jpeg", content_type: "image/jpeg")
 r1.photos.attach(io: bbq, filename: "5.jpeg", content_type: "image/jpeg")
 r1.photos.attach(io: ice_cream, filename: "6.jpeg", content_type: "image/jpeg")
 r1.photos.attach(io: dholl_puri, filename: "7.jpeg", content_type: "image/jpeg")
+r1.photos.attach(io: burger, filename: "8.jpeg", content_type: "image/jpeg")
 r1.save!
 puts " Finished creating first restaurant"
 w1 = WorkingHour.new(day: "Tuesday to Saturday", opening_hours: "12:00", closing_hours: "23:30", restaurant_id: r1.id)
@@ -49,18 +52,21 @@ w2 = WorkingHour.new(day: "Sunday", opening_hours: "16:00", closing_hours: "23:3
 w2.save!
 puts " Finished creating first restaurant working hours w2"
 
-
 venue1 = URI.open("https://images.pexels.com/photos/2664216/pexels-photo-2664216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 venue2 = URI.open("https://images.pexels.com/photos/1581554/pexels-photo-1581554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 dhol_puri = URI.open("https://restaurants.mu/blog-admin/wp-content/uploads/2018/05/1-3.jpg")
 roti = URI.open("https://veganlovlie.com/wp-content/uploads/mauritian_roti_fillings_part3_curry-on-roti.jpg")
 ice_cream = URI.open("https://img.taste.com.au/DcBJMzGZ/taste/2017/05/fruit-sorbet-126288-1.jpg")
+briyani = URI.open("https://www.indianhealthyrecipes.com/wp-content/uploads/2019/04/veg-biryani-recipe.jpg")
+bbq = URI.open("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F05%2F10%2Fgrilled-citrus-bbq-glazed-chicken-1.jpg&w=380&h=380&c=sc&poi=%5B1100%2C671%5D&q=60&rect=423%2C0%2C1882%2C1459")
 r2 = Restaurant.new(name: "La Bonne Fourchette", address: "Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "57752952", user_id: u2.id)
 r2.photos.attach(io: venue1, filename: "1.jpeg", content_type: "image/jpeg")
 r2.photos.attach(io: dhol_puri, filename: "2.jpeg", content_type: "image/jpeg")
 r2.photos.attach(io: venue2, filename: "3.jpeg", content_type: "image/jpeg")
 r2.photos.attach(io: roti, filename: "4.jpeg", content_type: "image/jpeg")
 r2.photos.attach(io: ice_cream, filename: "5.jpeg", content_type: "image/jpeg")
+r2.photos.attach(io: briyani, filename: "6.jpeg", content_type: "image/jpeg")
+r2.photos.attach(io: bbq, filename: "7.jpeg", content_type: "image/jpeg")
 r2.save!
 puts " Finished creating 2nd restaurant"
 w3 = WorkingHour.new(day: "Tuesday to Saturday", opening_hours: "11:00", closing_hours: "20:00", restaurant_id: r2.id)
@@ -94,10 +100,18 @@ puts " Finished creating 3rd restaurant working hours w5"
 file = URI.open("https://images.pexels.com/photos/7364040/pexels-photo-7364040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 dholl_puri = URI.open("https://images.pexels.com/photos/7364040/pexels-photo-7364040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 fried_noodles = URI.open("https://www.honestfoodtalks.com/wp-content/uploads/2022/12/Chungs-Teriyaki-stir-fry-Hong-Kong-noodles-with-chopsticks-on-the-side.jpg")
+roti = URI.open("https://www.indian-ocean.com/wp-content/uploads/2014/11/P1100093.jpg")
+bbq = URI.open("https://cdn.shopify.com/s/files/1/0661/2838/0145/products/NewProductsBBlock_17_460x@2x.png?v=1670480067")
+burger = URI.open("https://www.unileverfoodsolutions.com.au/dam/global-ufs/mcos/anz/calcmenu/recipe/killer-recipes-update/beef-burger-with-deep-fried-bacon-and-thousand-island-dressing_main-header.jpg")
+ice_cream = URI.open("https://jessicainthekitchen.com/wp-content/uploads/2022/03/Avocado-Ice-Cream6525.jpg")
 r4 = Restaurant.new(name: "Mine Mangouste", address: "L'Agrément, Saint Pierre, Moka, Mauritius", contact_number: "4334325", user_id: u1.id)
 r4.photos.attach(io: file, filename: "r4.jpeg", content_type: "image/jpeg")
 r4.photos.attach(io: dholl_puri, filename: "r4.jpeg", content_type: "image/jpeg")
 r4.photos.attach(io: fried_noodles, filename: "r4.jpeg", content_type: "image/jpeg")
+r4.photos.attach(io: roti, filename: "r4.jpeg", content_type: "image/jpeg")
+r4.photos.attach(io: bbq, filename: "r4.jpeg", content_type: "image/jpeg")
+r4.photos.attach(io: burger, filename: "r4.jpeg", content_type: "image/jpeg")
+r4.photos.attach(io: ice_cream, filename: "r4.jpeg", content_type: "image/jpeg")
 r4.save!
 puts " Finished creating 4th restaurant"
 w6 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r4.id)
@@ -110,9 +124,11 @@ file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.j
 dholl_puri = URI.open("https://www.krazybutterfly.com/wp-content/uploads/2022/05/Dholl-Puri.jpg")
 fried_noodles = URI.open("https://www.joyousapron.com/wp-content/uploads/2021/03/Tom-Yum-Fried-Noodles.jpg")
 r5 = Restaurant.new(name: "Saffron Grill", address: "Kendra Shopping Mall, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
+briyani = URI.open("https://sambalexpress.co.uk/barkingside/wp-content/uploads/sites/6/2020/07/Chicken_Biryani.jpg")
 r5.photos.attach(io: file, filename: "2.jpeg", content_type: "image/jpeg")
 r5.photos.attach(io: dholl_puri, filename: "2.jpeg", content_type: "image/jpeg")
 r5.photos.attach(io: fried_noodles, filename: "2.jpeg", content_type: "image/jpeg")
+r5.photos.attach(io: briyani, filename: "2.jpeg", content_type: "image/jpeg")
 r5.save!
 puts " Finished creating 4th restaurant"
 w7 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "09:00", closing_hours: "22:00", restaurant_id: r5.id)
@@ -135,10 +151,14 @@ puts " Finished creating restaurants"
 file = URI.open("https://images.pexels.com/photos/104884/pexels-photo-104884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 dholl_puri = URI.open("https://images.pexels.com/photos/104884/pexels-photo-104884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 fried_noodles = URI.open("http://cdn.shopify.com/s/files/1/0595/3850/5936/articles/20221130023757-untitled-design-12-3.png?v=1669776008")
+ice_cream = URI.open("https://www.washingtonpost.com/resizer/qYpYDV1BjKI3ZimLblCjjFXhc2k=/arc-anglerfish-washpost-prod-washpost/public/KUFWIPXROII6ZLAWR67XDFGNPA.jpg")
+bbq = URI.open("https://thequirinokitchen.com/wp-content/uploads/2014/05/IMG_1424-e1400697798900.jpg")
 r7 = Restaurant.new(name: "B&G", address: "L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r7.photos.attach(io: file, filename: "1.jpeg", content_type: "image/jpeg")
 r7.photos.attach(io: dholl_puri, filename: "2.jpeg", content_type: "image/jpeg")
 r7.photos.attach(io: fried_noodles, filename: "3.jpeg", content_type: "image/jpeg")
+r7.photos.attach(io: ice_cream, filename: "4.jpeg", content_type: "image/jpeg")
+r7.photos.attach(io: bbq, filename: "5.jpeg", content_type: "image/jpeg")
 r7.save!
 puts " Finished creating 4th restaurant"
 w9 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r7.id)
@@ -150,11 +170,15 @@ file = URI.open("https://images.pexels.com/photos/1579739/pexels-photo-1579739.j
 roti = URI.open("https://restaurants.mu/blog-admin/wp-content/uploads/2018/05/3-1.jpg")
 dholl_puri = URI.open("https://www.linfo.re/IMG/jpg/276152171_761170001463985_1451450490062626206_n.jpg")
 briyani = URI.open("https://www.asiaone.com/sites/default/files/original_images/Mar2020/20200311-briyani-pex.jpg")
+fried_noodles = URI.open("https://woonheng.com/wp-content/uploads/2021/03/Cantonese-Soy-Sauce-Fried-Noodle.jpg")
+bbq = URI.open("https://images.immediate.co.uk/production/volatile/sites/30/2020/08/how-to-barbecue-safely-main-image-700-350-6b4e52c.jpg?quality=90&fit=700,350")
 r8 = Restaurant.new(name: "GLORIA", address: "Pharmachic, A7, L'Agrément, Saint Pierre, Moka, Outer islands of Mauritius, 81407, Mauritius", contact_number: "4334325", user_id: u1.id)
 r8.photos.attach(io: file, filename: "1.jpeg", content_type: "image/jpeg")
 r8.photos.attach(io: roti, filename: "2.jpeg", content_type: "image/jpeg")
 r8.photos.attach(io: dholl_puri, filename: "3.jpeg", content_type: "image/jpeg")
 r8.photos.attach(io: briyani, filename: "4.jpeg", content_type: "image/jpeg")
+r8.photos.attach(io: fried_noodles, filename: "5.jpeg", content_type: "image/jpeg")
+r8.photos.attach(io: bbq, filename: "5.jpeg", content_type: "image/jpeg")
 r8.save!
 puts " Finished creating 4th restaurant"
 w10 = WorkingHour.new(day: "Monday to Sunday", opening_hours: "12:00", closing_hours: "23:00", restaurant_id: r8.id)
