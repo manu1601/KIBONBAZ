@@ -59,6 +59,24 @@
           <div class="bg-info rounded-pill">
             <h1 class="text-center text-dark"><strong><%= @restaurant.name %></strong></h1>
           </div>
+          <% if @rating%>
+            <div class="bg-info rounded-pill text-center mt-3">
+              <% action = @rating.round%>
+                <% case action  %>
+                  <% when 1  %>
+                    <p>⭐️</p>
+                  <% when 2  %>
+                    <p> Rating : ⭐️⭐️</p>
+                  <% when 3  %>
+                    <p>Rating: ⭐️⭐️⭐️</p>
+                  <% when 4  %>
+                    <p>Rating: ⭐️⭐️⭐️⭐</p>
+                  <% when 5  %>
+                    <p>Rating: ⭐️⭐️⭐️⭐️⭐️</p>
+                <% end %>
+            </div>
+          <% end %>
+          <!--adding review-->
           <div class="bg-info rounded-pill text-center mt-3">
             <p class="text-dark"><i class="fa-solid fa-location-dot text-dark" style="color:black;"></i><%= @restaurant.address %></p>
           </div>
