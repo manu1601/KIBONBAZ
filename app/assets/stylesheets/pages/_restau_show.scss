@@ -94,8 +94,16 @@
   left: 0;
   bottom: 0;
   background-color:#1f2833;
-  margin: 20px auto;
+  margin-top: 20px;
   //border-radius: 30px;
   padding-top: 10px;
   z-index: 2;
+}
+// restaurant title
+#restaurant-title {
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 30px;
+  font-weight: lighter;
+  color: black;
+  // padding-bottom: 40px;
 }

@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-lg-4">
       <% @tags.each do |tag| %>
         <div class="card bg-dark text-white mb-1 border-0 shadow p-3 mt-4 mb-4 bg-body rounded">
-           <%= cl_image_tag tag.photo.key, crop: :fill %>
+           <%= cl_image_tag tag.photo.key, crop: :fill%>
           <div class="card-img-overlay"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
