@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-sm-12 col-lg-4" style="background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);">
         <div class = "shadow-lg p-2 mb-3 mt-3 bg-info rounded-pill">
-          <h1 class="text-center fw-bolder"> Your favorites!</h1>
+          <h1 class="text-center fw-bolder" style= "font-family: 'Alfa Slab One', cursive; color:#1f2833;" > My Favorites!</h1>
         </div>
         <div class = "shadow-lg p-3 mb-3 mt-3 bg-info rounded-pill d-flex justify-content-center" >
           <%= form_with url: favorites_path, method: :get, class: "d-flex" do %>
@@ -16,12 +16,12 @@
         </div>
       <div class="favorite-card">
         <% @favorites.each do |favorite| %>
-          <div class="card mt-3 border-0 rounded-5 " style="width: 23rem;">
+          <div class="card mt-3 border-0 rounded-5" style="width: 22rem;">
             <%@restaurant = Restaurant.find_by(id:favorite.favoritable_id)  %>
-            <%= cl_image_tag @restaurant.photos[0].key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded-4" %>
-            <div class="card-body">
+            <%= cl_image_tag @restaurant.photos[0].key, width: 350, height: 290, crop: :fill, class: "card-img-top rounded-4" %>
+            <div id=card-body-show class="card-body">
               <div>
-                <%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill"  %>
+                <h2 class= "text-center"style= "font-family: 'Alfa Slab One', cursive;" ><%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill " %></h2>
               </div>
               <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
                 <%@review = Review.new  %>
