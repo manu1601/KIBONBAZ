@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-lg-4">
+    <div id="c1" class="col-sm-12 col-lg-4">
       <%= render "restaurants/carousel", restaurant: @restaurant %>
       <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
         <div class="d-inline">
@@ -56,7 +56,7 @@
       <div class="card mt-2 border-0 rounded-5 bg-white">
         <div class="card-body fw-bold">
           <div class="bg-info rounded-pill">
-            <h1 class="text-center text-dark p-2"><strong><%= @restaurant.name %></strong></h1>
+            <h1 class="text-center text-dark p-2" style= "font-family: 'Alfa Slab One', cursive;"> <%= @restaurant.name %> </h1>
           </div>
           <% if @rating%>
             <div class="bg-info rounded-pill text-center mt-3 p-1">
