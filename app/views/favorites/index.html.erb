@@ -3,17 +3,16 @@
     <div class="col-sm-12 col-lg-4">
 
           <h1 class="text-center fw-bolder mt-3"> Your favorites!</h1>
-
-        <div class = "shadow-lg p-3 mb-3 mt-3 bg-info  d-flex justify-content-center" >
-          <%= form_with url: favorites_path, method: :get, class: "d-flex" do %>
+          <div class="shadow-lg p-3 mb-3 bg-info rounded-pill d-flex justify-content-center">
+        <%= form_with url: favorites_path, method: :get, class: "d-flex, " do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control border-0 ",
-            placeholder: "Search for a Restaurant"
+            class: "form-control, w-70, text-center, border-0",
+            placeholder: "type Restaurant name"
           %>
-          <button class="btn  rounded-pill me-2" type="submit"><i class="fa-solid fa-magnifying-glass p-0 text-black "></i></button>
-          <% end %>
-        </div>
+          <%= submit_tag "Search", class: "btn btn-dark rounded-pill ms-3" %>
+        <% end %>
+      </div>
       <div class="favorite-card">
         <% @favorites.each do |favorite| %>
           <div class="card mt-3 border-0 rounded-5 " style="width: 23rem;">

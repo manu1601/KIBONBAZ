@@ -2,7 +2,7 @@
   <p> Be the first one to add a review! </p>
 <% else %>
   <% reviews.each do |review| %>
-    <div class="shadow p-3 mb-5 bg-info rounded-pill fw-bold ">
+
       <tr >
           <td> <%= review.user.username %> : </td>
           <td> <%= review.comment %> </td>
@@ -20,6 +20,6 @@
             <p>⭐️⭐️⭐️⭐️⭐️</p>
           <% end %>
       </tr>
-    </div>
+   
     <% end %>
 <% end %>

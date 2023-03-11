@@ -7,78 +7,45 @@
           <% action = @rating.round%>
           <% case action  %>
             <% when 1  %>
-              <sup>⭐️</sup>
+              <p>⭐️</p>
             <% when 2  %>
-              <sup>⭐️⭐️</sup>
+              <p>⭐️⭐️</p>
             <% when 3  %>
-              <sup>⭐️⭐️⭐️</sup>
+              <p>⭐️⭐️⭐️</p>
             <% when 4  %>
-              <sup>⭐️⭐️⭐️⭐</sup>
+              <p>⭐️⭐️⭐️⭐</p>
             <% when 5  %>
-              <sup>⭐️⭐️⭐️⭐️⭐️</sup>
+              <p>⭐️⭐️⭐️⭐️⭐️</p>
             <% end %>
         <% end %>
       </h1>
       <%= render "restaurants/carousel", restaurant: @restaurant %>
-        <div class="">
-          <button class="btn btn-primary mt-3 mb-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseExample-<%=@restaurant.id%>"
-                  aria-expanded="false"
-                  aria-controls="collapseExample">
-            Write a review
-          </button>
-          <div class="collapse" id="collapseExample-<%=@restaurant.id%>">
-            <div class="card card-body">
-              <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
-            </div>
-          </div>
-            <!-- working on write review front-end-->
-        </div>
-        </div>
-        <div class="">
-          <button class="btn btn-primary mb-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseExample"
-                  aria-expanded="false"
-                  aria-controls="collapseExample">
-            Reviews
-          </button>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <%= render "favorites/review_list", reviews: @reviews, review: @review%>
-            </div>
+      <div class="restau-card">
+      <div class="d-inline mt-3 ms-4">
+        <%= link_to"Direction",restaurants_path, class: "btn btn-dark rounded-pill" %>
+        <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+          <%= link_to"Add to favorites",restaurant_favorites_path(@restaurant), class:"btn btn-dark rounded-pill" %>
+        <% end %>
+        <button class="btn btn-dark rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Reviews
+        </button>
+        <div class="collapse rounded-3" id="collapseExample">
+          <div class="card card-body mt-3">
+            <%= render "favorites/review_list", reviews: @reviews, review: @review%>
           </div>
         </div>
-        <div class="">
-           <%= link_to"Direction",restaurants_path, class: "btn btn-primary mb-3" %>
-        </div>
-        <div class="">
-          <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
-              <%= link_to restaurant_favorites_path(@restaurant) do%>
-                <i class="fa-regular fa-star"style="color:orange"></i>
-              <% end %>
-          <% end %>
-        </div>
-    </div>
-  </div>
-</div>
-<div class="card" style="width:auto">
-  <div class="card-body">
-    <div class="position-absolute top-0 end-0">
-          <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
-              <%= link_to restaurant_favorites_path(@restaurant) do%>
-                <i class="fa-regular fa-star"style="color:orange"></i>
-              <% end %>
-          <% end %>
-    </div>
-   <p ><i class="fa-solid fa-location-dot text-black"></i><%= @restaurant.address %><p>
-   <p><i class="fa-solid fa-phone text-black"></i><%= @restaurant.contact_number%></p>
-   <div class="">
-    <%= link_to"Direction",restaurants_path, class: "btn btn-primary mb-3" %>
-   </div>
+      </div>
 
+      <div class="card mt-3 border-0 rounded-3 bg-info " style="width:auto">
+        <div class="card-body">
+          <div class="shadow-none p-1 mb-3 bg-light rounded"><i class="fa-solid fa-location-dot text-black"></i><%= @restaurant.address %> </div>
+          <div class="shadow-none p-1 mb-3 bg-light rounded"><i class="fa-solid fa-phone text-black"></i><%= @restaurant.contact_number%></div>
+        </div>
+      </div>
+      <div class="shadow-sm p-3 mt-3 bg-white rounded-2 text-dark">
+        <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
+      </div>
+      </div>
+    </div>
   </div>
 </div>
