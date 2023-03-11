@@ -282,4 +282,19 @@ re2 = Review.new(comment: "Delicieux!", rating: 4, restaurant_id: r2.id, user_id
 re2.save!
 re3 = Review.new(comment: "Zafer la Tamam!", rating: 5, restaurant_id: r4.id, user_id: u5.id)
 re3.save!
+re4 = Review.new(comment: "amazing food, Great staff!", rating: 3, restaurant_id: r1.id, user_id: u1.id)
+re4.save!
+re5 = Review.new(comment: "Tasty food, coming back next week", rating: 3, restaurant_id: r1.id, user_id: u2.id)
+re5.save!
+re6 = Review.new(comment: "Tasty food, coming back next week", rating: 3, restaurant_id: r1.id, user_id: u3.id)
+re6.save!
+re7 = Review.new(comment: "Yummy! Enjoyed a great meal", rating: 4, restaurant_id: r5.id, user_id: u3.id)
+re7.save!
+re8 = Review.new(comment: "good food is here", rating: 4, restaurant_id: r3.id, user_id: u1.id)
+re8.save!
+re9 = Review.new(comment: "good food is here", rating: 4, restaurant_id: r6.id, user_id: u2.id)
+re9.save!
+re10 = Review.new(comment: "good food is here", rating: 4, restaurant_id: r7.id, user_id: u1.id)
+re10.save!
+
 puts "Finished populating database!"

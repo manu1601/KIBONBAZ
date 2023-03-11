@@ -5,7 +5,7 @@
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
           <% if user_signed_in? && current_user.favorited?(restaurant) %>
             <div class="position-absolute top-0 end-0">
-              <i class="fa-solid fa-star fs-1"style="color:orange"></i>
+              <i class="fa-solid fa-star fs-1"style="color:yellow"></i>
             </div>
           <% end %>
         </div>

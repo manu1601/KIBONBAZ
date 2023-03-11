@@ -22,17 +22,17 @@
               <div>
                 <%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill"  %>
               </div>
-              <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
+              <!--div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill"-->
                 <%@review = Review.new  %>
                 <%@review.restaurant = @restaurant %>
                 <div class="d-inline">
-                  <i class="fa-solid fa-pen-to-square"
+                  <!--i class="fa-solid fa-pen-to-square"
                     type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseExample-<%=@restaurant.id%>"
                     aria-expanded="false"
                     aria-controls="collapseExample"
                     style="color:black;">
-                  </i>
+                  </i-->
                   <div class="collapse"
                       id="collapseExample-<%=@restaurant.id%>">
                     <div class="card card-body border-0 "
@@ -43,7 +43,7 @@
                 </div>
                 <div class="d-inline">
                   <%@reviews = @restaurant.reviews %>
-                  <i class="fa-solid fa-users-viewfinder"
+                  <!--i class="fa-solid fa-users-viewfinder"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseExample<%=@restaurant.id%>"
@@ -51,7 +51,7 @@
                     aria-controls="collapseExample"
                     style ="color:black;"
                     data-action="click->icon#read">
-                  </i>
+                  </i-->
                   <div class="collapse "
                       id="collapseExample<%=@restaurant.id%>"
                       data-icon-target="write">
@@ -60,7 +60,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="d-inline">
+                <div class="position-absolute top-0 end-0">
                   <%= link_to favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration:none;" do %>
                     <i class="fa-solid fa-trash" style="color:red;"></i>
                   <% end %>
