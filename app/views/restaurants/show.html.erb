@@ -21,7 +21,7 @@
       </h1>
       <%= render "restaurants/carousel", restaurant: @restaurant %>
       <div class="restau-card">
-      <div class="d-inline mt-3 ms-4">
+      <div class="d-inline mt-3 ms-2">
         <%= link_to"Direction",restaurants_path, class: "btn btn-dark rounded-pill" %>
         <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
           <%= link_to"Add to favorites",restaurant_favorites_path(@restaurant), class:"btn btn-dark rounded-pill" %>
