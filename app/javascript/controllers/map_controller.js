@@ -16,6 +16,28 @@ export default class extends Controller {
     });
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.map.addControl(
+      new MapboxDirections({
+          accessToken: mapboxgl.accessToken,
+          unit: 'metric',
+      profile: 'mapbox/driving',
+      controls: {instructions: false}
+
+      }),
+      'top-left'
+  );
+
+  this.map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    trackUserLocation: true,
+    showUserHeading: true,
+    showUserLocation: true,
+    fitBoundsOptions: {maxZoom:15}
+
+  }), 'bottom-right')
+
   }
 
   #fitMapToMarkers() {
