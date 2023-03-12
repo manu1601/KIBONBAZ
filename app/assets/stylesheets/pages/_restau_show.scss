@@ -98,6 +98,16 @@
   //border-radius: 30px;
   padding-top: 10px;
   z-index: 2;
+  opacity: 0.95;
+}
+
+#c1 {
+  background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);
+}
+
+#card-body-show {
+  box-shadow: 4px 10px 15px -12px rgba(0,0,0,0.75);
+  border-radius: 25px;
 }
 // restaurant title
 #restaurant-title {

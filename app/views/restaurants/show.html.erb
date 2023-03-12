@@ -1,5 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
+
+
     <div class="col-sm-12 col-lg-4">
       <h1 class="text-center text-dark mt-3" id="restaurant-title">
         <%= @restaurant.name %>
@@ -19,6 +21,7 @@
             <% end %>
         <% end %>
       </h1>
+
       <%= render "restaurants/carousel", restaurant: @restaurant %>
       <div class="restau-card">
       <div class="d-inline mt-3 ms-2">
@@ -34,6 +37,7 @@
             <%= render "favorites/review_list", reviews: @reviews, review: @review%>
           </div>
         </div>
+
       </div>
 
       <div class="card mt-3 border-0 rounded-3 bg-info " style="width:auto">
@@ -45,7 +49,9 @@
       <div class="shadow-sm p-3 mt-3 bg-white rounded-2 text-dark">
         <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
       </div>
+
       </div>
     </div>
   </div>
+
 </div>
