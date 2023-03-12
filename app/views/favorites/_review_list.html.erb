@@ -4,7 +4,7 @@
   <% reviews.each do |review| %>
 
       <tr >
-          <td> <%= review.user.username %> : </td>
+          <td><strong> <%= review.user.username %></strong> </td>
           <td> <%= review.comment %> </td>
           <td> <% action = review.rating.to_i %> </td>
           <% case action  %>
@@ -20,6 +20,7 @@
             <p>⭐️⭐️⭐️⭐️⭐️</p>
           <% end %>
       </tr>
-   
+      <hr>
+
     <% end %>
 <% end %>
