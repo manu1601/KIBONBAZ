@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-sm-12 col-lg-4"style="background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);">
       <div class= " p-2 mt-3  mb-2">
-        <h1 class="text-center fw-bolder">#<%= @tag.name_tag %></h1>
+        <h1 class="text-center fw-bolder"style= "font-family: 'Alfa Slab One', cursive; color: #1f2833">#<%= @tag.name_tag %></h1>
       </div>
       <div class="shadow-lg p-3 mb-3 bg-info rounded-pill d-flex justify-content-center">
-        <%= form_with url: tag_path(@tag), method: :get, class: "d-flex, " do %>
+        <%= form_with url: tag_path(@tag), method: :get, class: "d-flex " do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control, w-70, text-center, border-0",
-            placeholder: "type Restaurant name"
+            class: "form-control ms-2 me-2 border-0 rounded-pill",
+            placeholder: "Search for a Restaurant"
           %>
-          <%= submit_tag "Search", class: "btn btn-dark rounded-pill ms-3" %>
+          <button class="btn  rounded-pill me-2" type="submit"data-turbo= false><i class="fa-solid fa-magnifying-glass p-0 text-black "></i></button>
         <% end %>
       </div>
       <div id="tag-card">
