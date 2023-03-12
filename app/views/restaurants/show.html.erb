@@ -1,90 +1,55 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div id="c1" class="col-sm-12 col-lg-4">
+
+
+    <div class="col-sm-12 col-lg-4">
+      <h1 class="text-center text-dark mt-3" id="restaurant-title">
+        <%= @restaurant.name %>
+        <% if @rating%>
+          <% action = @rating.round%>
+          <% case action  %>
+            <% when 1  %>
+              <p>⭐️</p>
+            <% when 2  %>
+              <p>⭐️⭐️</p>
+            <% when 3  %>
+              <p>⭐️⭐️⭐️</p>
+            <% when 4  %>
+              <p>⭐️⭐️⭐️⭐</p>
+            <% when 5  %>
+              <p>⭐️⭐️⭐️⭐️⭐️</p>
+            <% end %>
+        <% end %>
+      </h1>
+
       <%= render "restaurants/carousel", restaurant: @restaurant %>
-      <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
-        <div class="d-inline">
-          <i class="fa-solid fa-pen-to-square"
-            type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseExample-<%=@restaurant.id%>"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            style="color:black;">
-          </i>
-          <div class="collapse"
-            id="collapseExample-<%=@restaurant.id%>">
-            <div class="card card-body border-0 "
-              data-icon-target="read">
-              <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
-            </div>
+      <div class="restau-card">
+      <div class="d-inline mt-3 ms-2">
+        <%= link_to"Direction",restaurants_path, class: "btn btn-dark rounded-pill" %>
+        <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
+          <%= link_to"Add to favorites",restaurant_favorites_path(@restaurant), class:"btn btn-dark rounded-pill" %>
+        <% end %>
+        <button class="btn btn-dark rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Reviews
+        </button>
+        <div class="collapse rounded-3" id="collapseExample">
+          <div class="card card-body mt-3">
+            <%= render "favorites/review_list", reviews: @reviews, review: @review%>
           </div>
         </div>
 
-        <div class="d-inline">
-          <%@reviews = @restaurant.reviews %>
-          <i class="fa-solid fa-users-viewfinder"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseExample<%=@restaurant.id%>"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            style ="color:black;"
-            data-action="click->icon#read">
-          </i>
-          <div class="collapse "
-            id="collapseExample<%=@restaurant.id%>"
-            data-icon-target="write">
-            <div class="card card-body border-0">
-              <%= render "favorites/review_list", reviews: @reviews, review: @review%>
-            </div>
-          </div>
-        </div>
-
-        <div class="d-inline">
-          <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
-              <%= link_to restaurant_favorites_path(@restaurant) do%>
-                <i class="fa-solid fa-star fs-2 " style="color:black"> </i>
-              <% end %>
-          <% end %>
-        </div>
       </div>
 
-    </div>
-
-
-
-      <div class="card mt-2 border-0 rounded-5 bg-#FCF5EF">
-        <div class="card-body fw-bold">
-          <div class="bg-info rounded-pill">
-            <h1 class="text-center text-dark p-2" style= "font-family: 'Alfa Slab One', cursive;"> <%= @restaurant.name %> </h1>
-          </div>
-          <% if @rating%>
-            <div class="bg-info rounded-pill text-center mt-3 p-1">
-              <% action = @rating.round%>
-                <% case action  %>
-                  <% when 1  %>
-                    <p>Rating :⭐️</p>
-                  <% when 2  %>
-                    <p> Rating : ⭐️⭐️</p>
-                  <% when 3  %>
-                    <p>Rating: ⭐️⭐️⭐️</p>
-                  <% when 4  %>
-                    <p>Rating: ⭐️⭐️⭐️⭐</p>
-                  <% when 5  %>
-                    <p>Rating: ⭐️⭐️⭐️⭐️⭐️</p>
-                <% end %>
-            </div>
-          <% end %>
-          <div class="bg-info rounded-pill text-center mt-3">
-            <p class="text-dark p-3"><i class="fa-solid fa-location-dot text-dark" style="color:black;"></i><%= @restaurant.address %></p>
-          </div>
-          <div class="bg-info rounded-pill text-center">
-            <p class="text-center "><i class="fa-solid fa-phone text-dark"style="color:black;"></i><%= @restaurant.contact_number %></p>
-          </div>
+      <div class="card mt-3 border-0 rounded-3 bg-info " style="width:auto">
+        <div class="card-body">
+          <div class="shadow-none p-1 mb-3 bg-light rounded"><i class="fa-solid fa-location-dot text-black"></i><%= @restaurant.address %> </div>
+          <div class="shadow-none p-1 mb-3 bg-light rounded"><i class="fa-solid fa-phone text-black"></i><%= @restaurant.contact_number%></div>
         </div>
-        <br>
-  <br>
-  <br>
+      </div>
+      <div class="shadow-sm p-3 mt-3 bg-white rounded-2 text-dark">
+        <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
+      </div>
+
       </div>
     </div>
   </div>

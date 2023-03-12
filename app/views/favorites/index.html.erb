@@ -1,19 +1,22 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-lg-4" style="background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);">
-        <div class = "shadow-lg p-2 mb-3 mt-3 bg-info rounded-pill">
-          <h1 class="text-center fw-bolder" style= "font-family: 'Alfa Slab One', cursive; color:#1f2833;" > My Favorites!</h1>
-        </div>
-        <div class = "shadow-lg p-3 mb-3 mt-3 bg-info rounded-pill d-flex justify-content-center" >
-          <%= form_with url: favorites_path, method: :get, class: "d-flex" do %>
+
+    <div class="col-sm-12 col-lg-4">
+
+          <h1 class="text-center fw-bolder mt-3"> Your favorites!</h1>
+          <div class="shadow-lg p-3 mb-3 bg-info rounded-pill d-flex justify-content-center">
+        <%= form_with url: favorites_path, method: :get, class: "d-flex, " do %>
+
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control ms-2 me-2 border-0 rounded-pill",
-            placeholder: "Search for a Restaurant"
+            class: "form-control, w-70, text-center, border-0",
+            placeholder: "type Restaurant name"
           %>
+
           <button class="btn  rounded-pill me-2" type="submit"data-turbo= false><i class="fa-solid fa-magnifying-glass p-0 text-black "></i></button>
           <% end %>
         </div>
+
       <div class="favorite-card">
         <% @favorites.each do |favorite| %>
           <div class="card mt-3 border-0 rounded-5" style="width: 22rem;">
@@ -23,45 +26,7 @@
               <div>
                 <h2 class= "text-center"style= "font-family: 'Alfa Slab One', cursive;" ><%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill " %></h2>
               </div>
-              <div class ="text-center shadow p-2 mb-1 mt-3 bg-info rounded-pill">
-                <%@review = Review.new  %>
-                <%@review.restaurant = @restaurant %>
-                <div class="d-inline">
-                  <i class="fa-solid fa-pen-to-square"
-                    type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseExample-<%=@restaurant.id%>"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                    style="color:black;">
-                  </i>
-                  <div class="collapse"
-                      id="collapseExample-<%=@restaurant.id%>">
-                    <div class="card card-body border-0 "
-                        data-icon-target="read">
-                      <%= render "review_form", restaurant: @restaurant, review: @review %>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-inline">
-                  <%@reviews = @restaurant.reviews %>
-                  <i class="fa-solid fa-users-viewfinder"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseExample<%=@restaurant.id%>"
-                    aria-expanded="false"
-                    aria-controls="collapseExample"
-                    style ="color:black;"
-                    data-action="click->icon#read">
-                  </i>
-                  <div class="collapse "
-                      id="collapseExample<%=@restaurant.id%>"
-                      data-icon-target="write">
-                    <div class="card card-body border-0">
-                      <%= render "review_list", reviews: @reviews, review: @review%>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-inline">
+                <div class="position-absolute top-0 end-0">
                   <%= link_to favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration:none;" do %>
                     <i class="fa-solid fa-trash" style="color:red;"></i>
                   <% end %>
