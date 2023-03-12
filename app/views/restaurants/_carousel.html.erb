@@ -4,8 +4,8 @@
         <div class="carousel-item active" data-bs-interval="2000">
           <%= cl_image_tag photo.key, height: 300, width: 350, crop: :fill, class:"d-block w-100" %>
           <% if user_signed_in? && current_user.favorited?(restaurant) %>
-            <div class="position-absolute top-0 end-0">
-              <i class="fa-solid fa-star fs-1"style="color:#E9BE78"></i>
+            <div class="position-absolute top-0 end-0 m-2 p-0">
+              <i class="fa-solid fa-star fs-1"style="color:gold"></i>
             </div>
           <% end %>
         </div>
