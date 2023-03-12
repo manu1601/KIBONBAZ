@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
 
 
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-sm-12 col-lg-4" style= "background-image: url(https://img.freepik.com/vecteurs-libre/memphis-fond_53876-85419.jpg?w=740&t=st=1677265783~exp=1677266383~hmac=60ba9e3f2cd5828b51d44b4a909294d9bb63e578337d917ba806eb17acbc380e);">
       <h1 class="text-center text-dark mt-3" id="restaurant-title">
         <%= @restaurant.name %>
         <% if @rating%>
@@ -40,13 +40,13 @@
 
       </div>
 
-      <div class="card mt-3 border-0 rounded-3 bg-info " style="width:auto">
+      <div class="card mt-3 border-0 rounded-5 pt-3 bg-info " style="width:auto">
         <div class="card-body">
-          <div class="shadow-none p-1 mb-3 bg-light rounded"><i class="fa-solid fa-location-dot text-black"></i><%= @restaurant.address %> </div>
-          <div class="shadow-none p-1 mb-3 bg-light rounded"><i class="fa-solid fa-phone text-black"></i><%= @restaurant.contact_number%></div>
+          <div class="shadow-none p-1 mb-3 bg-light rounded-5 p-3" ><i class="fa-solid fa-location-dot text-black"></i><%= @restaurant.address %> </div>
+          <div class="shadow-none p-1 mb-3 bg-light rounded-5"><i class="fa-solid fa-phone text-black"></i><%= @restaurant.contact_number%></div>
         </div>
       </div>
-      <div class="shadow-sm p-3 mt-3 bg-white rounded-2 text-dark">
+      <div class="shadow-sm p-3 mt-3 bg-white rounded-5 text-dark">
         <%= render "favorites/review_form", restaurant: @restaurant, review: @review %>
       </div>
 

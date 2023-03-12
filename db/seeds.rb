@@ -150,8 +150,8 @@ ice_cream = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/
 dholl_puri = URI.open("https://i.pinimg.com/originals/9d/f1/23/9df12349fe78eb18486aabb710de3a97.jpg")
 roti = URI.open("https://www.indian-ocean.com/wp-content/uploads/2014/11/P1100093.jpg")
 burger = URI.open("https://assets.bonappetit.com/photos/57aceacc1b3340441497532d/master/pass/double-rl-ranch-burger.jpg")
-bbq = URI.open("https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2022/06/BBQ-Chicken-main-1.jpg")
-r6 = Restaurant.new(name: "star deg", address: "B49, Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81402, Mauritius", contact_number: "4334325", user_id: u1.id)
+# bbq = URI.open("https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2022/06/BBQ-Chicken-main-1.jpg")
+r6 = Restaurant.new(name: "Lakaz Mama", address: "B49, Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81402, Mauritius", contact_number: "4334325", user_id: u1.id)
 r6.photos.attach(io: venue, filename: "1.jpeg", content_type: "image/jpeg")
 r6.photos.attach(io: briyani, filename: "1.jpeg", content_type: "image/jpeg")
 r6.photos.attach(io: kebab, filename: "1.jpeg", content_type: "image/jpeg")
@@ -160,7 +160,7 @@ r6.photos.attach(io: ice_cream, filename: "1.jpeg", content_type: "image/jpeg")
 r6.photos.attach(io: dholl_puri, filename: "1.jpeg", content_type: "image/jpeg")
 r6.photos.attach(io: roti, filename: "1.jpeg", content_type: "image/jpeg")
 r6.photos.attach(io: burger, filename: "1.jpeg", content_type: "image/jpeg")
-r6.photos.attach(io: bbq, filename: "1.jpeg", content_type: "image/jpeg")
+# r6.photos.attach(io: bbq, filename: "1.jpeg", content_type: "image/jpeg")
 r6.save!
 puts " Finished creating 6th restaurant"
 
@@ -286,15 +286,15 @@ re4 = Review.new(comment: "amazing food, Great staff!", rating: 3, restaurant_id
 re4.save!
 re5 = Review.new(comment: "Tasty food, coming back next week", rating: 3, restaurant_id: r1.id, user_id: u2.id)
 re5.save!
-re6 = Review.new(comment: "Tasty food, coming back next week", rating: 3, restaurant_id: r1.id, user_id: u3.id)
+re6 = Review.new(comment: "Local meyer!", rating: 3, restaurant_id: r1.id, user_id: u3.id)
 re6.save!
 re7 = Review.new(comment: "Yummy! Enjoyed a great meal", rating: 4, restaurant_id: r5.id, user_id: u3.id)
 re7.save!
 re8 = Review.new(comment: "good food is here", rating: 4, restaurant_id: r3.id, user_id: u1.id)
 re8.save!
-re9 = Review.new(comment: "good food is here", rating: 4, restaurant_id: r6.id, user_id: u2.id)
+re9 = Review.new(comment: "Staff is great, not the food!", rating: 2, restaurant_id: r6.id, user_id: u2.id)
 re9.save!
-re10 = Review.new(comment: "good food is here", rating: 4, restaurant_id: r7.id, user_id: u1.id)
+re10 = Review.new(comment: "Awful experience!", rating: 1, restaurant_id: r7.id, user_id: u1.id)
 re10.save!
 
 puts "Finished populating database!"
