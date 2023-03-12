@@ -19,9 +19,9 @@ export default class extends Controller {
     this.map.addControl(
       new MapboxDirections({
           accessToken: mapboxgl.accessToken,
-          unit: 'metric',
-      profile: 'mapbox/driving',
-      controls: {instructions: false}
+          unit: 'metric'
+      //profile: 'mapbox/driving',
+      //controls: {instructions: false}
 
       }),
       'top-left'
