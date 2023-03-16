@@ -16,14 +16,14 @@
       </div>
       <div id="tag-card">
         <% @suggestions.each do |suggestion| %>
-          <div class="card mb-3 shadow-sm p-3 bg-white rounded-5 border-0" style="width: auto;">
+          <div class="card mb-3 shadow-sm p-3 bg-white rounded-5 border-0" style="width: auto; ">
             <div class="card-body">
-            <h5 class="card-title">
-              <%= link_to (suggestion.restaurant.name), restaurant_path(suggestion.restaurant), class:"btn btn-info rounded-pill fw-bolder mb-3" %>
+            <h5 class="card-title" style="font-family: 'Alfa Slab One', cursive;">
+              <%= link_to (suggestion.restaurant.name), restaurant_path(suggestion.restaurant), class:"btn btn-info rounded-pill fw-bolder mb-3 fs-3" %>
             </h5>
 
             <p class="card-text fw-bold"> Address: <%= suggestion.restaurant.address%> </p>
-            <p class="card-text fw-bold"> contact_number: <%= suggestion.restaurant.contact_number%> </p>
+            <p class="card-text fw-bold"> Contact number: <%= suggestion.restaurant.contact_number%> </p>
             <p class="card-text fw-bold">
               <% average = [] %>
               <% suggestion.restaurant.reviews.each do |review| %>

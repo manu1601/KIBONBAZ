@@ -7,11 +7,11 @@
           <div class="tag-image p-1">
            <%= cl_image_tag tag.photo.key,width: 324, height: 300, crop: :fill%>
           </div>
-          <div class="card-img-overlay"
+          <div  class="card-img-overlay"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
-                title='list all restaurants that serve <%=tag.name_tag%>'>
-            <h1 style= "font-family: 'Alfa Slab One', cursive; color: #1f2833"><%= link_to tag.name_tag, tag_path(tag), class: "btn btn-info rounded-pill mt-2 ms-1" %></h1>
+                title ='list all restaurants that serve <%=tag.name_tag%>'>
+            <h1 style= "font-family: 'Alfa Slab One', cursive; color: #1f2833;"><%= link_to tag.name_tag, tag_path(tag), class: "btn btn-info rounded-pill mt-2 ms-1 fs-2" %></h1>
           </div>
         </div>
       <% end %>
