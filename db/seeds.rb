@@ -25,7 +25,7 @@ puts " Finished creating 3 users as owner "
 
 puts "creating restaurants"
 r1 = Restaurant.new(name: "Bol 5", address: "JKalachand, A7, L'Agrément, Saint Pierre, Moka, Mauritius", contact_number: "59702430", user_id: u1.id)
-venue1 = URI.open("https://www.channelnews.mu/wp-content/uploads/2022/12/317900563_584434480182757_3319516367364357201_n.jpg")
+venue1 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t39.30808-6/277772928_2197167323786035_8487468349582835689_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=lwbTrDmO8RkAX-i7v5i&_nc_ht=scontent.fmru3-1.fna&oh=00_AfC1WC2ipdN0-DjJ0l35uqh7dI0oIK75vGEjOs6CGDhrbw&oe=641A073C")
 venue2 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t39.30808-6/228899050_2000489496787153_1174515254061275659_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=973b4a&_nc_ohc=kSMBFgbO6YkAX9ii9wV&_nc_ht=scontent.fmru3-1.fna&oh=00_AfAAxx0_13CWaUjZyh5v-AE2wJdNwemiq2lfCuP6rxqkKA&oe=6419C1F6")
 bol1 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t39.30808-6/228684305_2000489556787147_8321176337906572074_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=973b4a&_nc_ohc=zCfVKgwH3UMAX8haMUx&_nc_ht=scontent.fmru3-1.fna&oh=00_AfBZlbYWPum9sZu_D2PUY8jX0qbKg0glin3FTI7g18t4lQ&oe=641A71F2")
 bol2 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t39.30808-6/229012970_2000489670120469_2625593706648243266_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=973b4a&_nc_ohc=9bc-nK2IPbcAX_M9oKU&_nc_ht=scontent.fmru3-1.fna&oh=00_AfAbWW43wPZA0ribG-s-yVcAYSPKVQ2Sts4Tdn26Ohcr-Q&oe=641A465B")
@@ -116,15 +116,15 @@ r5.save!
 puts " Finished creating 5th restaurant"
 
 # seeding more restaurants for demo
-venue = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t39.30808-6/277772928_2197167323786035_8487468349582835689_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=lwbTrDmO8RkAX-i7v5i&_nc_ht=scontent.fmru3-1.fna&oh=00_AfC1WC2ipdN0-DjJ0l35uqh7dI0oIK75vGEjOs6CGDhrbw&oe=641A073C")
+venue = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t39.30808-6/273800338_798600754393381_2109987965152869725_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=2UwTur2sBUgAX81FLW1&_nc_ht=scontent.fmru3-1.fna&oh=00_AfDrbYefpyHz6X8BBk9yLHiroUTcyOuhNz6jheuOz-bStg&oe=6419A68F")
 lkm1 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t1.6435-9/192744385_1058445554564424_5690126693325530170_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=5c32SQYL3eMAX-5FimJ&_nc_ht=scontent.fmru3-1.fna&oh=00_AfBH1HZNSBLXbltrtzLhMWPDrCBaqNWCJy_q3tHAT9TDWA&oe=643C0572")
 lkm2 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t1.6435-9/181436235_1041428729599440_4225832755016527537_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=CAfVvAqxub8AX-4i95J&_nc_ht=scontent.fmru3-1.fna&oh=00_AfCd5no86QJXxKSHEB82xEJpILQtOQxCWZ_4Zp0ZIz_DLQ&oe=643C1326")
 lkm3 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t1.6435-9/166100298_1020759181666395_2516577845782502165_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=L9SyqBdGgnMAX_iO1f_&_nc_ht=scontent.fmru3-1.fna&oh=00_AfD2uJ2pLMtoguHb27n2bMTUAhKhwcD3MRchGm-8KFJ_aA&oe=643C0FFC")
 lkm4 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t1.6435-9/162983791_1016608735414773_6781050580174703048_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=R7f6vQykll8AX-MagyN&_nc_ht=scontent.fmru3-1.fna&oh=00_AfBDiOHL9ZqDlmshRGb3TLazTUPmA96ss6ATXUcyaZ5Uxg&oe=643C0C32")
 lkm5 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t1.6435-9/82929333_824421797966802_4503140805422592475_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=T4ypMpUxTKAAX9INkUY&_nc_ht=scontent.fmru3-1.fna&oh=00_AfCT8uP3sb0_CQKAy9HhAX6dZMQ57HDxnF054G-Rj70-Nw&oe=643C0F4C")
 lkm6 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t1.6435-9/78602829_692903837785266_239301511715225600_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=NUChVebwTn8AX-epEMT&_nc_ht=scontent.fmru3-1.fna&oh=00_AfCaOPRu-otS0rNkRVWJft-uNu3taai06DiXeeLqo776Nw&oe=643BFF67")
-lkm7 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t39.30808-6/273800338_798600754393381_2109987965152869725_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=2UwTur2sBUgAX81FLW1&_nc_ht=scontent.fmru3-1.fna&oh=00_AfDrbYefpyHz6X8BBk9yLHiroUTcyOuhNz6jheuOz-bStg&oe=6419A68F")
-# bbq = URI.open("https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2022/06/BBQ-Chicken-main-1.jpg")
+lkm7 = URI.open("https://scontent.fmru3-1.fna.fbcdn.net/v/t1.6435-9/70975109_641611399581177_1199154448136404992_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=dk9IUNrofDkAX8xb3eq&_nc_ht=scontent.fmru3-1.fna&oh=00_AfBTyu39xTjT1ioPtqDTcXt2y9SDwEr2BeZTLiSuawx9og&oe=643C4B58")
+
 r6 = Restaurant.new(name: "Lakaz Mama", address: "B49, Circonstance, Saint Pierre, Moka, Outer islands of Mauritius, 81402, Mauritius", contact_number: "4334325", user_id: u1.id)
 r6.photos.attach(io: venue, filename: "1.jpeg", content_type: "image/jpeg")
 r6.photos.attach(io: lkm1, filename: "1.jpeg", content_type: "image/jpeg")
@@ -245,7 +245,7 @@ re2 = Review.new(comment: "Delicieux!", rating: 4, restaurant_id: r2.id, user_id
 re2.save!
 re3 = Review.new(comment: "Zafer la Tamam!", rating: 5, restaurant_id: r4.id, user_id: u5.id)
 re3.save!
-re4 = Review.new(comment: "amazing food, Great staff!", rating: 3, restaurant_id: r1.id, user_id: u1.id)
+re4 = Review.new(comment: "Amazing food, Great staff!", rating: 4, restaurant_id: r7.id, user_id: u1.id)
 re4.save!
 re5 = Review.new(comment: "Tasty food, coming back next week", rating: 3, restaurant_id: r1.id, user_id: u2.id)
 re5.save!
@@ -259,5 +259,13 @@ re9 = Review.new(comment: "Staff is great, not the food!", rating: 2, restaurant
 re9.save!
 re10 = Review.new(comment: "Awful experience!", rating: 1, restaurant_id: r7.id, user_id: u1.id)
 re10.save!
+re11 = Review.new(comment: "Mari Bon!", rating: 5, restaurant_id: r6.id, user_id: u1.id)
+re11.save!
+re12 = Review.new(comment: "Awful experience!", rating: 1, restaurant_id: r2.id, user_id: u1.id)
+re12.save!
+re13 = Review.new(comment: "Pas mal!", rating: 3, restaurant_id: r8.id, user_id: u1.id)
+re13.save!
+re14 = Review.new(comment: "Awful experience!", rating: 2, restaurant_id: r8.id, user_id: u1.id)
+re14.save!
 
 puts "Finished populating database!"
