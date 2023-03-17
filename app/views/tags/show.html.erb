@@ -16,13 +16,14 @@
       </div>
       <div id="tag-card">
         <% @suggestions.each do |suggestion| %>
-          <div class="card mb-3 shadow-sm p-3 bg-white rounded-5 border-0" style="width: auto; ">
+          <div class="card mb-3 shadow-sm p-3 bg-light rounded-5 border-0 text-center" style="width: auto; ">
             <div class="card-body">
             <h5 class="card-title" style="font-family: 'Alfa Slab One', cursive;">
+            <%= cl_image_tag suggestion.restaurant.photos[0].key, width: 300, height: 250, crop: :fill, class: "card-img-top rounded-4 mb-4 border border-dark" %>
               <%= link_to (suggestion.restaurant.name), restaurant_path(suggestion.restaurant), class:"btn btn-info rounded-pill fw-bolder mb-3 fs-3" %>
             </h5>
-
-            <p class="card-text fw-bold"> Address: <%= suggestion.restaurant.address%> </p>
+              <hr>
+            <p class="card-text fw-bold"> <i class="fa-solid fa-location-dot text-black" ></i> <%= suggestion.restaurant.address%> </p>
             <p class="card-text fw-bold"> Contact number: <%= suggestion.restaurant.contact_number%> </p>
             <p class="card-text fw-bold">
               <% average = [] %>
