@@ -1,4 +1,5 @@
-<h1 style= "font-size: 25px;"><%= restaurant.name %></h1> <p class= "rating_p"><%= rating %><i class="fa-solid fa-star" style="color:#E9BE78"></i></p>
-    <p><%= restaurant.address %></p>
-    <p><%= restaurant.contact_number %></p>
-<%= link_to "More info", restaurant_path(restaurant), class: "btn btn-dark btn-sm"%>
+<h1 style= "font-size: 25px;"><%= restaurant.name %></h1>
+<hr>
+<p class= "rating_p"><%= rating %><i class="fa-solid fa-star" style="color:#E9BE78"></i></p>
+
+<%= link_to "More info", restaurant_path(restaurant), class: "btn btn-info btn-md rounded-3"%>

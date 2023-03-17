@@ -25,11 +25,10 @@
       <%= render "restaurants/carousel", restaurant: @restaurant %>
       <div class="restau-card">
       <div class="d-inline mt-3 ms-2">
-        <%= link_to"Direction",restaurants_path, class: "btn btn-dark rounded-pill" %>
         <% if user_signed_in? && current_user.favorited?(@restaurant) == false  %>
-          <%= link_to"Add to favorites",restaurant_favorites_path(@restaurant), class:"btn btn-dark rounded-pill" %>
+          <%= link_to"Add to Favorites ⭐️",restaurant_favorites_path(@restaurant), class:"btn btn-dark btn-lg rounded-4" %>
         <% end %>
-        <button class="btn btn-dark rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-dark rounded-4 btn-lg" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Reviews
         </button>
         <div class="collapse rounded-3" id="collapseExample">
@@ -55,3 +54,4 @@
   </div>
 
 </div>
+<%= render "shared/footer" %>
