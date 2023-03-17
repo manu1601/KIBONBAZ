@@ -24,11 +24,11 @@
             <%= cl_image_tag @restaurant.photos[0].key, width: 350, height: 290, crop: :fill, class: "card-img-top rounded-4" %>
             <div id=card-body-show class="card-body">
               <div>
-                <h2 class= "text-center"style= "font-family: 'Alfa Slab One', cursive;" ><%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill " %></h2>
+                <h2 class= "text-center"style= "font-family: 'Alfa Slab One', cursive;" ><%= link_to (@restaurant.name), restaurant_path(@restaurant), class: "btn btn-info rounded-pill fs-3" %></h2>
               </div>
                 <div class="position-absolute top-0 end-0 m-2 rounded-5 bg-white">
                   <%= link_to favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration:none;" do %>
-                    <i class="fa-solid fa-trash" style="color: black;"></i>
+                    <i class="fa-solid fa-trash " style="color: black;"></i>
                   <% end %>
                 </div>
               </div>
@@ -44,4 +44,4 @@
 <br>
     </div>
 <br>
- 
+<%= render "shared/footer" %>
